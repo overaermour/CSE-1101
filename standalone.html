@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d2d">
+  <meta name="description" content="Interactive University of Guyana CSE1101 study hub: logic, arguments, sets, proofs, combinatorics, relations and functions.">
+  <title>CSE1101 | Discrete Mathematics Study Hub</title>
+  <style>
+:root{--bg:#f6f8f5;--paper:#fff;--paper2:#f3f8f2;--text:#17302b;--muted:#66756e;--border:#e0e9e0;--green:#2e7655;--green-dark:#195a41;--green-soft:#e5f3e9;--lime:#d3ed84;--nav:#102d2d;--nav2:#1b3c36;--nav-text:#b4c7c0;--shadow:0 12px 40px rgba(24,52,40,.055);--radius:18px}
+:root[data-theme="dark"]{--bg:#0d1918;--paper:#172925;--paper2:#203731;--text:#e9f1e9;--muted:#a3b8ab;--border:#315147;--green:#75cc9a;--green-dark:#9adbb3;--green-soft:#244737;--shadow:0 12px 38px rgba(0,0,0,.15);--nav:#091b1a;--nav2:#16322e;--nav-text:#b4c7c0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.57}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #81cf94;outline-offset:3px}button:disabled{opacity:.5;cursor:not-allowed}strong{font-weight:750}.app-shell{display:flex;min-height:100vh}.sidebar{width:268px;background:var(--nav);color:#e7f0e8;position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;flex:none;padding:27px 16px 23px;display:flex;flex-direction:column;z-index:30}.brand{display:flex;align-items:center;gap:11px;padding:0 9px;margin-bottom:39px}.brand-mark{width:41px;height:41px;display:grid;place-items:center;border-radius:12px;background:var(--lime);color:#15392c;font-size:25px;font-weight:800}.brand strong{font-size:20px;letter-spacing:-.8px;display:block;line-height:1.2}.brand small{display:block;font-size:9px;letter-spacing:2.4px;color:#b8ccba;font-weight:700;margin-top:4px}.side-kicker{font-size:10px;color:#76958b;letter-spacing:1.6px;font-weight:800;margin:0 13px 13px}.main-nav,.week-nav{display:grid;gap:3px}.main-nav a,.week-nav a{padding:11px 13px;display:flex;align-items:center;gap:12px;border-radius:10px;color:var(--nav-text);font-size:13px;font-weight:600;transition:background .17s,color .17s}.main-nav a:hover,.week-nav a:hover{background:var(--nav2);color:white}.main-nav a.active,.week-nav a.active{background:#2e5d47;color:#eefbe9}.main-nav a.active{box-shadow:inset 3px 0 0 var(--lime)}.nav-symbol{width:20px;text-align:center;font-size:18px;line-height:1}.weeks-kicker{margin-top:34px}.week-nav a{padding:8px 12px;font-size:12px;gap:9px}.week-number{font-size:11px;min-width:24px;opacity:.72}.week-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.week-check{margin-left:auto;color:var(--lime);font-size:13px}.sidebar-bottom{margin-top:auto;padding:28px 10px 0}.sidebar-progress-label{display:flex;justify-content:space-between;font-size:11px;color:#bfcec5;gap:4px}.sidebar-progress-label strong{color:#fff}.meter{height:7px;background:rgba(255,255,255,.12);border-radius:100px;margin:11px 0 0;overflow:hidden}.meter>span{display:block;height:100%;width:0;background:var(--lime);border-radius:inherit;transition:width .25s}.sidebar-bottom p{font-size:10px;color:#83a197;line-height:1.65;margin:15px 0}.theme-button{padding:8px 0;border:0;background:none;color:#b9d4c5;font-size:11px;font-weight:700;text-align:left}.workspace{flex:1;min-width:0;display:flex;flex-direction:column}.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--border);padding:0 clamp(23px,4vw,62px);background:var(--paper);position:sticky;top:0;z-index:15}.crumb{font-size:12px;color:var(--muted);font-weight:600}.crumb span{margin:0 11px;color:#9aa9a0}.topbar-right{display:flex;align-items:center;gap:16px}.top-pill{font-size:10px;font-weight:800;letter-spacing:.8px;color:var(--green);display:flex;align-items:center;gap:8px}.online-dot{width:7px;height:7px;background:#5dbe84;border-radius:50%}.icon-button,.menu-button{border:1px solid var(--border);border-radius:10px;background:var(--paper);color:var(--text);width:36px;height:36px;font-size:20px;display:grid;place-items:center}.mobile-brand{display:none}.footer{padding:24px clamp(24px,4vw,62px) 32px;display:flex;gap:15px;justify-content:space-between;color:var(--muted);font-size:11px;border-top:1px solid var(--border)}main{flex:1;max-width:1570px;width:100%;padding:42px clamp(23px,4vw,62px) 68px;margin:0 auto}.eyebrow{font-size:10px;font-weight:850;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin:0 0 12px}.page-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:27px}.page-heading h1{font-size:clamp(27px,3vw,39px);line-height:1.2;letter-spacing:-1.6px;margin:0 0 9px;font-weight:800}.page-heading p{margin:0;max-width:660px;color:var(--muted);font-size:14px}.hero{background:radial-gradient(ellipse at 75% -40%,rgba(199,235,129,.2),transparent 58%),linear-gradient(120deg,#173d36,#0e2b2d);color:#f5f8eb;min-height:260px;display:flex;align-items:center;justify-content:space-between;gap:28px;padding:35px 41px;border-radius:22px;overflow:hidden;position:relative;box-shadow:var(--shadow)}.hero .eyebrow{color:var(--lime)}.hero h1{font-size:clamp(29px,3.5vw,49px);line-height:1.12;max-width:620px;letter-spacing:-1.7px;margin:0 0 16px}.hero p{max-width:510px;color:#bbd4cb;font-size:14px;margin:0 0 25px}.hero .actions{display:flex;gap:11px;flex-wrap:wrap}.hero-art{flex:0 0 245px;width:245px;height:205px;display:grid;place-items:center;position:relative}.hero-art::before{content:"";position:absolute;width:200px;height:200px;border:1px solid rgba(222,245,206,.25);border-radius:50%;box-shadow:0 0 0 28px rgba(222,245,206,.035),0 0 0 55px rgba(222,245,206,.025)}.hero-art span{font-family:Georgia,serif;font-size:68px;font-weight:bold;color:var(--lime);position:relative;transform:rotate(-7deg);text-shadow:0 9px 35px rgba(160,240,155,.24)}.hero-art small{position:absolute;color:#a9cabb;letter-spacing:2px;font-size:12px}.hero-art small:nth-child(2){top:16px;left:25px}.hero-art small:nth-child(3){bottom:13px;right:14px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid transparent;border-radius:11px;padding:10px 17px;background:var(--green);color:white;font-size:12px;font-weight:780;min-height:42px;transition:transform .14s,filter .14s,border .14s;white-space:nowrap}.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}.btn.primary{background:var(--lime);color:#1e3928}.btn.secondary{background:var(--paper);color:var(--text);border-color:var(--border)}.btn.ghost{background:transparent;border-color:#648779;color:#e9f8eb}.btn.danger{background:#9b4444}.btn.small{min-height:35px;padding:7px 12px}.btn.full{width:100%}.card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}.section-head{margin:37px 0 17px;display:flex;align-items:center;justify-content:space-between;gap:10px}.section-head h2{margin:0;font-size:19px;letter-spacing:-.55px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:12px}.inline-link{font-size:12px;color:var(--green);font-weight:800;cursor:pointer;background:none;border:0}.stats-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:21px}.stat{padding:20px 22px;display:flex;flex-direction:column;justify-content:space-between;min-height:123px}.stat .overline{font-size:11px;color:var(--muted);font-weight:700}.stat strong{display:block;font-size:35px;letter-spacing:-1.6px;line-height:1.3;margin:5px 0 2px}.stat small{color:var(--muted);font-size:11px}.stat .progress-track{height:5px;background:var(--border);border-radius:8px;margin-top:9px}.stat .progress-track span{display:block;height:100%;background:var(--green);border-radius:8px}.topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.topic-card{display:flex;flex-direction:column;min-height:184px;padding:19px 19px 15px;transition:transform .2s,border-color .2s;text-align:left}.topic-card:hover{transform:translateY(-3px);border-color:#7cbd95}.topic-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.week-tag{border-radius:100px;padding:5px 10px;background:var(--green-soft);color:var(--green);font-size:10px;letter-spacing:.2px;font-weight:800}.week-tag.future{background:var(--paper2);color:var(--muted)}.done-tag{font-size:11px;color:var(--green);font-weight:800}.topic-card h3{font-size:15px;line-height:1.3;margin:18px 0 8px;letter-spacing:-.3px}.topic-card p{font-size:11.5px;color:var(--muted);margin:0 0 17px;flex:1}.topic-card .bottom-link{font-size:12px;color:var(--green);font-weight:800}.callout{padding:21px 24px;border-radius:16px;border:1px solid #c6dbc7;background:var(--green-soft);display:flex;align-items:flex-start;gap:15px;margin-top:21px}.callout .callout-symbol{display:grid;place-items:center;min-width:38px;height:38px;border-radius:10px;background:var(--paper);color:var(--green);font-size:20px;font-weight:bold}.callout strong{font-size:13px}.callout p{margin:4px 0 0;font-size:12px;color:var(--muted)}.pill{padding:5px 10px;border:1px solid var(--border);border-radius:100px;font-size:10px;font-weight:700;color:var(--muted)}.controls-row{display:flex;flex-wrap:wrap;align-items:center;gap:11px}.input{background:var(--paper);color:var(--text);border:1px solid var(--border);border-radius:11px;padding:11px 13px;min-height:43px;min-width:0}.input.search{width:min(340px,100%)}.study-layout{display:grid;grid-template-columns:minmax(0,1fr) 235px;gap:23px;align-items:start}.lesson-content{min-width:0}.lesson-panel{padding:29px 32px}.lesson-panel h2{font-size:23px;letter-spacing:-.7px;margin:0 0 9px}.lesson-panel .lead{color:var(--muted);margin:0 0 23px;font-size:13px}.lesson-block{border-top:1px solid var(--border);padding-top:22px;margin-top:24px}.lesson-block h3{font-size:17px;margin:0 0 10px;letter-spacing:-.35px}.lesson-block p,.lesson-block li{font-size:13px;line-height:1.85}.lesson-block p{margin:7px 0 10px}.lesson-block ul{padding-left:20px;margin:10px 0}.lesson-block li+li{margin-top:7px}.formula-box{border:1px solid var(--border);border-left:4px solid var(--green);background:var(--paper2);padding:15px 18px;border-radius:10px;margin:15px 0;overflow:auto}.formula-box .formula{font-family:Georgia,"Times New Roman",serif;font-size:20px;font-weight:700;letter-spacing:.35px;line-height:1.6}.formula-box p{margin:4px 0 0;font-size:12px;color:var(--muted)}.steps{counter-reset:step;display:grid;gap:9px;margin:14px 0}.step{position:relative;padding:10px 12px 10px 45px;background:var(--paper2);border-radius:9px;font-size:13px;min-height:41px}.step:before{counter-increment:step;content:counter(step);position:absolute;left:12px;top:10px;border-radius:50%;background:var(--green-soft);width:23px;height:23px;color:var(--green);display:grid;place-items:center;font-weight:800;font-size:11px}.hint{border-radius:12px;padding:13px 16px;font-size:12px;background:#fff5dd;color:#705322;border:1px solid #eedeb6;margin:17px 0}.dark .hint,:root[data-theme="dark"] .hint{background:#46391d;color:#f5dc9e;border-color:#775e29}.lesson-toc{position:sticky;top:91px;padding:19px}.lesson-toc h3{font-size:13px;margin:0 0 15px}.lesson-toc a{display:block;padding:8px 9px;border-left:2px solid var(--border);font-size:11.5px;color:var(--muted)}.lesson-toc a:hover{color:var(--green);border-left-color:var(--green)}.lesson-toc .btn{white-space:normal}.lesson-actions{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px solid var(--border)}.lesson-nav{display:flex;gap:8px}.example-title{display:inline-block;font-size:11px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.7px;margin-bottom:5px}.worked{margin-top:16px;border:1px solid var(--border);padding:16px;border-radius:13px}.worked h4{font-size:14px;margin:0 0 8px}.worked p{margin:0 0 8px}.worked .step{line-height:1.6}.check-area{background:var(--paper2);border-radius:14px;padding:20px;margin-top:23px}.check-area h4{margin:0 0 8px}.answer-options{display:grid;gap:9px;margin:15px 0}.option{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--border);border-radius:11px;background:var(--paper);color:var(--text);padding:14px 15px;text-align:left;font-size:13px;line-height:1.55;width:100%;transition:border-color .17s}.option:not(:disabled):hover{border-color:var(--green)}.option.selected{border-color:var(--green);background:var(--green-soft)}.option.correct{border-color:#4baa72;background:#e3f4e8;color:#17492c}.option.incorrect{border-color:#d98c79;background:#ffefeb;color:#843f2e}.option-letter{width:23px;height:23px;flex:0 0 23px;display:grid;place-items:center;border-radius:7px;border:1px solid var(--border);font-size:11px;font-weight:800;background:var(--paper)}.feedback{padding:13px 15px;border-radius:10px;margin:15px 0;font-size:12px;background:var(--green-soft);border:1px solid var(--border);line-height:1.75}.feedback strong{display:block;margin-bottom:3px}.assessment-layout{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:start}.setup-card{padding:27px}.setup-card h2{font-size:23px;margin:0 0 8px}.setup-card>p{font-size:13px;color:var(--muted)}.form-label{display:block;margin:21px 0 9px;font-size:12px;font-weight:800}.setup-card .input{width:100%}.mini-list{padding:20px 24px}.mini-list h3{margin:0 0 14px;font-size:14px}.mini-list p,.mini-list li{color:var(--muted);font-size:12px;line-height:1.9}.mini-list ul{padding-left:19px;margin:0}.mock-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.mock-card{padding:23px;min-height:170px;display:flex;flex-direction:column}.mock-card .number{color:var(--green);font-size:10px;letter-spacing:1.1px;font-weight:900}.mock-card h3{font-size:17px;margin:10px 0}.mock-card p{font-size:12px;color:var(--muted);margin:0 0 18px;flex:1}.quiz-container{max-width:810px;margin:auto}.quiz-header{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:16px}.quiz-header h2{font-size:21px;margin:0}.quiz-card{padding:27px 32px}.quiz-meta{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted);font-weight:750}.quiz-bar{height:7px;background:var(--border);border-radius:20px;overflow:hidden;margin:13px 0 29px}.quiz-bar>span{height:100%;display:block;background:var(--green);transition:width .2s}.question-prompt{font-size:20px;line-height:1.5;letter-spacing:-.35px;font-weight:750;margin:0 0 20px;white-space:pre-line}.quiz-footer{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:24px}.quiz-timer{background:var(--green-soft);padding:7px 13px;border-radius:10px;color:var(--green);font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}.quiz-timer.low{color:#b04d3b;background:#fae8e2}.question-dots{display:flex;gap:5px;flex-wrap:wrap;margin:18px 0}.q-dot{width:25px;height:25px;border:1px solid var(--border);border-radius:7px;background:var(--paper);color:var(--muted);font-size:10px;font-weight:750}.q-dot.current{outline:2px solid var(--green);outline-offset:1px}.q-dot.answered{background:var(--green-soft);border-color:var(--green);color:var(--green)}.result-panel{padding:29px;max-width:850px;margin:auto}.score-badge{font-size:59px;font-weight:850;letter-spacing:-3px;line-height:1.2;color:var(--green)}.score-badge small{font-size:19px;color:var(--muted);letter-spacing:0}.review-item{border-top:1px solid var(--border);padding:19px 0}.review-item h4{margin:0 0 9px;font-size:13px}.review-item p{font-size:12px;color:var(--muted);margin:4px 0}.review-item .good{color:var(--green);font-weight:800}.review-item .bad{color:#c55f4c;font-weight:800}.flash-wrap{max-width:780px;margin:0 auto}.flash-meta{text-align:center;color:var(--muted);font-size:12px;margin:20px 0}.flashcard{min-height:310px;border:1px solid var(--border);background:linear-gradient(140deg,var(--paper),var(--paper2));border-radius:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:35px;text-align:center;cursor:pointer;box-shadow:var(--shadow);transition:transform .18s,border-color .18s}.flashcard:hover{transform:translateY(-2px);border-color:var(--green)}.flashcard small{font-size:11px;color:var(--green);font-weight:900;letter-spacing:1.5px}.flashcard .face{font-size:clamp(21px,3vw,30px);font-weight:800;line-height:1.45;max-width:600px;white-space:pre-line;margin:20px 0}.flashcard .tap{font-size:11px;color:var(--muted)}.flash-controls{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:20px 0}.flash-filter{max-width:240px}.reference-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.reference-card{padding:23px 25px}.reference-card h3{margin:0 0 15px;font-size:16px;letter-spacing:-.3px}.ref-item{padding:10px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:4px}.ref-item:last-child{border:0}.ref-item strong{font-size:12px}.ref-item span{font-size:13px;font-family:Georgia,serif;word-break:break-word}.ref-item p{margin:0;color:var(--muted);font-size:11px}.empty{padding:42px;text-align:center;color:var(--muted)}.toast{position:fixed;bottom:25px;right:25px;background:#153b30;color:#fff;border-radius:11px;padding:12px 18px;box-shadow:0 10px 28px #0003;font-size:12px;font-weight:700;z-index:80;opacity:0;transform:translateY(12px);pointer-events:none;transition:all .2s}.toast.show{opacity:1;transform:translateY(0)}.overlay{display:none}
+@media(max-width:1180px){.topic-grid{grid-template-columns:repeat(2,1fr)}.mock-grid{grid-template-columns:repeat(2,1fr)}.hero-art{flex-basis:175px;width:175px}.hero-art::before{width:155px;height:155px}}
+@media(max-width:930px){.sidebar{position:fixed;left:0;top:0;transform:translateX(-100%);transition:transform .25s}.sidebar.open{transform:translateX(0)}.overlay:not([hidden]){display:block;position:fixed;inset:0;background:rgba(3,17,14,.54);z-index:20}.mobile-brand{display:flex;align-items:center;gap:11px}.mobile-brand strong{font-size:16px}.mobile-brand small{color:var(--green);font-weight:800;letter-spacing:1px;font-size:9px}.crumb{display:none}.topbar{height:65px}.study-layout{grid-template-columns:1fr}.lesson-toc{position:static;order:-1}.lesson-toc .toc-links{display:none}.assessment-layout{grid-template-columns:1fr}.mini-list{order:2}}
+@media(max-width:640px){main{padding:25px 17px 45px}.topbar{padding:0 17px}.top-pill{display:none}.hero{padding:28px 24px;min-height:255px}.hero h1{font-size:30px}.hero-art{display:none}.stats-grid{gap:10px}.stat{padding:14px 12px;min-height:107px}.stat strong{font-size:27px}.stat .overline{font-size:9px}.stat small{font-size:9px}.topic-grid{grid-template-columns:1fr}.topic-card{min-height:150px}.mock-grid{grid-template-columns:1fr}.reference-layout{grid-template-columns:1fr}.page-heading{align-items:flex-start;flex-direction:column}.page-heading h1{font-size:29px}.lesson-panel,.quiz-card,.result-panel{padding:21px 18px}.lesson-panel h2{font-size:20px}.question-prompt{font-size:18px}.quiz-footer{flex-wrap:wrap}.footer{flex-direction:column;font-size:10px;padding:20px 17px}.flashcard{min-height:270px}.flashcard .face{font-size:22px}.controls-row{width:100%}.controls-row .input{flex:1}.callout{padding:17px}.btn{font-size:11px;padding:10px 12px}}
+@media print{.sidebar,.topbar,.footer,.btn,.controls-row,.lesson-toc,.toast,.page-heading button{display:none!important}.workspace{display:block}main{padding:0;max-width:none}.card{box-shadow:none;break-inside:avoid}.reference-layout{display:block}.reference-card{page-break-inside:avoid;margin-bottom:10px}.ref-item{break-inside:avoid}body{background:white;color:black}.page-heading h1{font-size:22px}}
+
+.formula{white-space:pre-line}
+.lesson-block{scroll-margin-top:96px}
+
+  </style>
+
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#dashboard" aria-label="CSE1101 home">
+        <span class="brand-mark">∑</span>
+        <span><strong>CSE1101</strong><small>UG STUDY HUB</small></span>
+      </a>
+      <div class="side-kicker">YOUR WORKSPACE</div>
+      <nav class="main-nav" id="main-nav">
+        <a href="#dashboard" data-nav="dashboard"><span class="nav-symbol">▦</span> Dashboard</a>
+        <a href="#lessons" data-nav="lessons"><span class="nav-symbol">≡</span> Study lessons</a>
+        <a href="#practice" data-nav="practice"><span class="nav-symbol">◎</span> Practice questions</a>
+        <a href="#mocks" data-nav="mocks"><span class="nav-symbol">◷</span> Mock midterms</a>
+        <a href="#flashcards" data-nav="flashcards"><span class="nav-symbol">◇</span> Flashcards</a>
+        <a href="#reference" data-nav="reference"><span class="nav-symbol">∴</span> Formula sheet</a>
+      </nav>
+      <div class="side-kicker weeks-kicker">COURSE OUTLINE</div>
+      <nav class="week-nav" id="week-nav" aria-label="Weeks"></nav>
+      <div class="sidebar-bottom"><div class="sidebar-progress-label"><span>Course progress</span><strong id="side-progress-text">0 / 11</strong></div><div class="meter"><span id="side-progress-bar"></span></div><p>Built around your provided UG syllabus. Progress stays on this device.</p><button class="theme-button" id="theme-toggle" type="button">◐ &nbsp; Switch appearance</button></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><div class="mobile-brand"><button class="menu-button" id="menu-button" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button><span><strong>CSE1101</strong> <small>STUDY HUB</small></span></div><div class="crumb" id="breadcrumb">University of Guyana <span>/</span> Discrete Mathematics</div><div class="topbar-right"><span class="top-pill"><span class="online-dot"></span> WORKS OFFLINE</span><button id="top-theme-toggle" type="button" class="icon-button" aria-label="Toggle light and dark mode">◐</button></div></header>
+      <main id="main" tabindex="-1" aria-live="polite"></main>
+      <footer class="footer"><span>CSE1101 • University of Guyana • Independent revision resource</span><span>Based on the 11-week outline you provided · Verify exam coverage with your lecturer</span></footer>
+    </div>
+  </div>
+  <div class="overlay" id="menu-overlay" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+/* CSE1101 revision content adapted from the 11-week outline supplied by the student. */
+const LESSONS = [
+{
+ week:1,title:"Propositional logic",short:"Propositions, operators and basic truth tables",focus:true,
+ intro:"Start here. Learn to translate ordinary statements into symbols and evaluate compound statements precisely.",
+ goals:["Decide whether a sentence is a proposition.","Understand ¬, ∧, ∨, → and ↔.","Evaluate the main logical operators using truth tables."],
+ sections:[
+ {title:"1. Statements and propositions",body:"A proposition is a declarative sentence with exactly one truth value: true or false. “7 is odd” is a proposition. “Close the door” is a command, so it is not. We use lowercase letters p, q and r to stand for propositions."},
+ {title:"2. The five key connectives",body:"Negation ¬p reverses a truth value. Conjunction p ∧ q is true only if both are true. Inclusive disjunction p ∨ q is true if at least one is true. Conditional p → q is false only when p is true and q is false. Biconditional p ↔ q is true exactly when p and q agree.",formula:"¬p   |   p ∧ q   |   p ∨ q   |   p → q   |   p ↔ q",note:"Remember: 'or' in mathematical logic is inclusive unless explicitly stated otherwise."},
+ {title:"3. A complete two-variable truth table",body:"Two distinct propositions create 2² = 4 rows. Use all four combinations systematically: TT, TF, FT and FF.",formula:"p q  |  p∧q  p∨q  p→q  p↔q\nT T  |    T     T     T     T\nT F  |    F     T     F     F\nF T  |    F     T     T     F\nF F  |    F     F     T     T",note:"A conditional says what must happen when its premise is true; it makes no claim when its premise is false."}
+ ],examples:[
+ {title:"Translate a sentence",question:"'If it rains, then the match is cancelled.' Let r = it rains and c = the match is cancelled.",steps:["Identify the condition: 'it rains' is r.","Identify the result: 'the match is cancelled' is c.","Write the conditional: r → c."]},
+ {title:"Evaluate p → q",question:"What is the truth value when p is false and q is true?",steps:["A conditional is false only for p = T and q = F.","Here p = F, so the conditional is true.","Answer: F → T = T."]}
+ ],trap:"Do not confuse p → q with q → p. The converse is a different statement."
+},
+{
+ week:2,title:"Truth tables & equivalence",short:"Constructing truth tables and algebra of logic",focus:true,
+ intro:"Move from single connectives to multi-step expressions, tautologies, contradictions and logical equivalences.",
+ goals:["Build tables for nested logical formulas.","Identify tautologies and contradictions.","Apply De Morgan's laws and implication equivalences."],
+ sections:[
+ {title:"1. Build truth tables step by step",body:"For n different propositional variables, a full table needs 2ⁿ rows. Add a column for each subexpression, working from the innermost parentheses outward. Operators are normally applied in this order: ¬, ∧, ∨, →, ↔.",formula:"2 variables → 4 rows     3 variables → 8 rows",note:"Make a separate column for ¬q before evaluating p ∨ ¬q."},
+ {title:"2. Tautology, contradiction and contingency",body:"A tautology is true in every row, such as p ∨ ¬p. A contradiction is false in every row, such as p ∧ ¬p. A contingency has at least one true and one false row. Two expressions are logically equivalent when their final truth-table columns match on every row.",formula:"p ≡ q  means the expressions have identical truth values in every case."},
+ {title:"3. Equivalence laws you must know",body:"De Morgan's laws turn the negation of 'and' into 'or' with each part negated, and vice versa. A conditional can be rewritten as a disjunction. Negating a conditional requires p ∧ ¬q, not ¬p → ¬q.",formula:"¬(p ∧ q) ≡ ¬p ∨ ¬q\n¬(p ∨ q) ≡ ¬p ∧ ¬q\np → q ≡ ¬p ∨ q\np ↔ q ≡ (p → q) ∧ (q → p)"}
+ ],examples:[
+ {title:"Verify De Morgan's law",question:"Prove ¬(p ∧ q) and ¬p ∨ ¬q are equivalent.",steps:["Use rows TT, TF, FT, FF.","¬(p ∧ q) produces F, T, T, T.","¬p ∨ ¬q also produces F, T, T, T.","The columns match, so they are logically equivalent."]},
+ {title:"Negate an implication",question:"Negate 'If I study, I pass.'",steps:["Write p → q, where p = I study and q = I pass.","Negate: ¬(p → q) ≡ p ∧ ¬q.","Read it: 'I study AND I do not pass.'"]}
+ ],trap:"For three variables there are 8 rows, not 6. Do not forget to enumerate every assignment."
+},
+{
+ week:3,title:"Predicate logic & quantifiers",short:"Predicates, ∀, ∃ and quantified equivalence",focus:true,
+ intro:"Extend propositional logic to statements about members of a domain, such as 'every student' or 'at least one student'.",
+ goals:["Identify predicates and domains.","Translate universal and existential quantified statements.","Negate quantified expressions accurately."],
+ sections:[
+ {title:"1. Predicates require a domain",body:"A predicate P(x) becomes true or false when x receives a value from a specified domain. For example, P(x): 'x is even' with domain the integers. P(4) is true while P(3) is false. Never omit the domain when interpreting a mathematical claim."},
+ {title:"2. Universal and existential quantification",body:"The universal quantifier ∀x means 'for every x'. The existential quantifier ∃x means 'there exists at least one x'. The assertion ∃x P(x) requires just one witness. The assertion ∀x P(x) can be disproved with one counterexample.",formula:"∀x P(x) : P(x) holds for every x\n∃x P(x) : P(x) holds for at least one x"},
+ {title:"3. Negations and order of quantifiers",body:"To negate a quantified statement, swap ∀ and ∃ and negate the predicate. Order matters with two quantifiers: 'everyone likes someone' does not necessarily mean 'there is someone everyone likes'. In expressions over a student domain, 'all students who study pass' is ∀x (S(x) → P(x)).",formula:"¬∀x P(x) ≡ ∃x ¬P(x)\n¬∃x P(x) ≡ ∀x ¬P(x)\n∀x∃y R(x,y) is NOT generally equivalent to ∃y∀x R(x,y)"}
+ ],examples:[
+ {title:"Negate 'All birds fly'",question:"Domain: all birds. Let F(x) mean 'x can fly'.",steps:["Original: ∀x F(x).","Change ∀ to ∃ and negate F.","Negation: ∃x ¬F(x) = 'At least one bird cannot fly.'"]},
+ {title:"Translate 'Some students like maths'",question:"Domain: all people. S(x) = x is a student; M(x) = x likes maths.",steps:["'Some' means at least one: ∃x.","The person must be a student AND like maths.","Answer: ∃x (S(x) ∧ M(x))."]}
+ ],trap:"'All A are B' becomes ∀x(A(x) → B(x)), not ∀x(A(x) ∧ B(x)) when the domain includes non-A objects."
+},
+{
+ week:4,title:"Logical arguments",short:"Premises, conclusions and symbolic translation",focus:true,
+ intro:"Learn how premises support a conclusion, how to symbolize arguments, and why a valid argument depends on form.",
+ goals:["Identify premises and conclusions.","Express ordinary-language arguments symbolically.","Recognize arguments containing quantified statements."],
+ sections:[
+ {title:"1. What is an argument?",body:"An argument consists of one or more premises followed by a conclusion. The premises are the assumptions being used, not necessarily true in real life. The question of validity is whether the conclusion would have to be true whenever all premises are true."},
+ {title:"2. Standard symbolic form",body:"Translate each sentence consistently. The symbol ∴ means 'therefore'. For example: 'If the server is online, the website works. The server is online. Therefore, the website works.' becomes p → q, p, ∴ q.",formula:"Premise 1: p → q\nPremise 2: p\n────────────\nConclusion: q"},
+ {title:"3. Arguments with quantifiers",body:"Quantified arguments combine general claims with facts about an individual. Universal instantiation lets us apply ∀x(P(x) → Q(x)) to a named member a, obtaining P(a) → Q(a). If P(a) is also known, Modus Ponens then yields Q(a).",formula:"∀x(P(x) → Q(x)), P(a) ⊢ Q(a)",note:"⊢ means 'can be derived'. The conclusion is reached using universal instantiation plus Modus Ponens."}
+ ],examples:[
+ {title:"Symbolize an everyday argument",question:"'If I submit, I get a receipt. I submitted. Therefore, I get a receipt.'",steps:["Let s = I submit and r = I get a receipt.","Premises: s → r; s.","Conclusion: ∴ r. This has the valid Modus Ponens form."]},
+ {title:"Use a quantified premise",question:"Every programmer understands algorithms. Ali is a programmer. What follows?",steps:["Let P(x) = x is a programmer; A(x) = x understands algorithms.","Premises: ∀x(P(x) → A(x)); P(Ali).","Instantiate to P(Ali) → A(Ali).","Conclude A(Ali) by Modus Ponens."]}
+ ],trap:"Validity is not the same as having factually true premises. An argument can be valid even with false premises."
+},
+{
+ week:5,title:"Rules of inference",short:"Valid forms, Modus Ponens, Modus Tollens and more",focus:true,
+ intro:"Recognize the standard valid patterns and distinguish them from similar-looking invalid ones.",
+ goals:["Apply Modus Ponens and Modus Tollens.","Recognize Hypothetical and Disjunctive Syllogism.","Identify converse and inverse fallacies."],
+ sections:[
+ {title:"1. The central rules",body:"Modus Ponens (MP) uses p → q and p to conclude q. Modus Tollens (MT) uses p → q and ¬q to conclude ¬p. Both work for any propositions p and q.",formula:"MP:  p → q, p  ∴ q\nMT:  p → q, ¬q ∴ ¬p"},
+ {title:"2. Other useful inference rules",body:"Hypothetical Syllogism (HS): chain two implications. Disjunctive Syllogism (DS): eliminate a false alternative. Conjunction: combine two established truths. Simplification: take one conjunct. Addition: add an alternative to a known truth.",formula:"HS: p→q, q→r ∴ p→r\nDS: p∨q, ¬p ∴ q\nConjunction: p, q ∴ p∧q\nSimplification: p∧q ∴ p\nAddition: p ∴ p∨q"},
+ {title:"3. Invalid patterns worth memorizing",body:"Affirming the consequent incorrectly reasons from p → q and q to p. Denying the antecedent incorrectly reasons from p → q and ¬p to ¬q. Neither pattern guarantees the conclusion.",formula:"INVALID: p→q, q ∴ p\nINVALID: p→q, ¬p ∴ ¬q"}
+ ],examples:[
+ {title:"Modus Tollens",question:"If the alarm is set, the light blinks. The light is not blinking. What can you conclude?",steps:["Let a = alarm is set; b = light blinks.","Given a → b and ¬b.","By Modus Tollens, conclude ¬a."]},
+ {title:"Chain implications",question:"If A then B. If B then C. A is true. Prove C.",steps:["From A → B and B → C, infer A → C by Hypothetical Syllogism.","Given A, apply Modus Ponens to A → C.","Conclusion: C."]}
+ ],trap:"From 'If it rains, the ground is wet' and 'the ground is wet', you CANNOT infer it rained. A sprinkler is another possibility."
+},
+{
+ week:6,title:"Validity & logical fallacies",short:"Testing argument forms and detecting invalid reasoning",focus:true,
+ intro:"Combine translation, truth tables and inference rules to determine whether reasoning is valid.",
+ goals:["Test validity with a truth table.","Use a counterexample to establish invalidity.","Recognize common formal and informal fallacies."],
+ sections:[
+ {title:"1. The validity test",body:"An argument is valid if there is NO row where every premise is true and the conclusion is false. To test it, write the premises and conclusion as separate truth-table columns, then inspect only rows in which every premise is true.",formula:"Valid ⇔ (P₁ ∧ P₂ ∧ … ∧ Pₙ) → C is a tautology",note:"A single row with all true premises and a false conclusion proves invalidity."},
+ {title:"2. Counterexamples and deductive chains",body:"To show an argument invalid, construct an assignment making all premises true and the conclusion false. To show it valid, establish a recognized inference-rule derivation or show there is no counterexample in the complete truth table."},
+ {title:"3. Common fallacies",body:"Formal fallacies include affirming the consequent and denying the antecedent. Informal fallacies include ad hominem (attacking a person instead of their reasoning), straw man (misrepresenting a position), false dilemma (pretending only two choices exist), and hasty generalization (generalizing from too little evidence).",formula:"Counterexample to p→q, q ∴ p: choose p=F and q=T."}
+ ],examples:[
+ {title:"Test an invalid argument",question:"Premises: p → q and q. Claimed conclusion: p.",steps:["Select p = F, q = T.","Then p → q = T and q = T: both premises hold.","But p = F: the conclusion fails.","Therefore the argument is invalid."]},
+ {title:"Show a valid argument",question:"Premises: p ∨ q and ¬p. Conclusion: q.",steps:["If ¬p is true, p is false.","Since p ∨ q is true and p is false, q must be true.","This is Disjunctive Syllogism, so the argument is valid."]}
+ ],trap:"A valid argument with an untrue premise does not establish a true conclusion about the world; validity describes the logical connection."
+},
+{
+ week:7,title:"Set theory & Venn diagrams",short:"Unions, intersections, complements and set proofs",focus:false,
+ intro:"Learn set notation, diagram regions and the algebraic laws governing collections of objects.",
+ goals:["Calculate unions, intersections, differences and complements.","Interpret Venn diagram regions.","Apply set identities and prove simple statements."],
+ sections:[
+ {title:"1. Set fundamentals",body:"A set is a collection of distinct elements. Membership is written x ∈ A. The empty set ∅ has no elements. A ⊆ B means every element of A belongs to B. The universal set U supplies the context for complements."},
+ {title:"2. Basic set operations",body:"A ∪ B contains elements in A OR B; A ∩ B contains elements in both. A − B keeps the elements of A not in B. The complement Aᶜ includes elements of U outside A. Venn diagrams show these regions visually.",formula:"A ∪ B = {x : x∈A or x∈B}\nA ∩ B = {x : x∈A and x∈B}\nA − B = A ∩ Bᶜ"},
+ {title:"3. Counting and De Morgan's laws",body:"For two finite sets, subtract the overlap to avoid double counting. De Morgan's laws also apply to sets. In a set proof, show both directions of membership to establish equality.",formula:"|A ∪ B| = |A| + |B| − |A ∩ B|\n(A ∪ B)ᶜ = Aᶜ ∩ Bᶜ\n(A ∩ B)ᶜ = Aᶜ ∪ Bᶜ"}
+ ],examples:[
+ {title:"Find union and intersection",question:"A={1,2,3}, B={3,4,5}.",steps:["Union A∪B lists each member once: {1,2,3,4,5}.","Intersection A∩B contains shared members: {3}.","Difference A−B contains members only in A: {1,2}."]},
+ {title:"Count students",question:"22 take maths, 17 take computing, 8 take both. How many take at least one?",steps:["Use |A∪B|=|A|+|B|−|A∩B|.","Substitute: 22+17−8=31.","Answer: 31 students."]}
+ ],trap:"The empty set ∅ is not the same as {∅}; the latter has one element."
+},
+{
+ week:8,title:"Direct & contrapositive proofs",short:"Proving statements with definitions and implications",focus:false,
+ intro:"Write short, rigorous proofs using algebra and the exact definitions of even, odd and divisibility.",
+ goals:["Structure a direct proof of p → q.","Use the equivalent contrapositive ¬q → ¬p.","Distinguish evidence from general proof."],
+ sections:[
+ {title:"1. The language of proof",body:"To prove a universal implication, assume its premise for an arbitrary element, then use definitions and valid steps to establish the conclusion. A number n is even if n=2k for an integer k, and odd if n=2k+1."},
+ {title:"2. Direct proof",body:"A direct proof starts by assuming p, derives consequences, and ends at q. Each symbolic step must be justified. Testing a few examples does not prove a statement for every integer.",formula:"To prove p → q:\nAssume p. Use definitions and algebra. Conclude q."},
+ {title:"3. Contrapositive proof",body:"p → q and ¬q → ¬p are logically equivalent. Sometimes it is easier to assume the desired conclusion is false and prove the hypothesis was false. This is different from the converse q → p.",formula:"p → q ≡ ¬q → ¬p"}
+ ],examples:[
+ {title:"Direct: sum of even integers is even",question:"Suppose a and b are even integers.",steps:["Write a=2m and b=2n for integers m and n.","Then a+b=2m+2n=2(m+n).","Since m+n is an integer, a+b is even."]},
+ {title:"Contrapositive: n² even ⇒ n even",question:"Prove this for every integer n.",steps:["Contrapositive: if n is odd, then n² is odd.","Let n=2k+1 for an integer k.","n²=4k²+4k+1=2(2k²+2k)+1, which is odd.","The contrapositive holds, so the original implication holds."]}
+ ],trap:"To prove a statement about ALL integers, testing n=2, 4 and 6 is not enough."
+},
+{
+ week:9,title:"Contradiction & induction",short:"Indirect proof and mathematical induction",focus:false,
+ intro:"Learn two major techniques for establishing a mathematical statement across many possible cases.",
+ goals:["Set up a proof by contradiction.","Identify the base case and induction step.","Prove a summation formula by induction."],
+ sections:[
+ {title:"1. Proof by contradiction",body:"Assume the target statement is false. Use legitimate reasoning to derive an impossibility such as R ∧ ¬R. The assumption must therefore be false, establishing the target claim.",formula:"Assume ¬P → derive a contradiction → conclude P"},
+ {title:"2. Mathematical induction",body:"Induction proves a statement P(n) for all integers n at or above a starting value. First prove the base case. Then assume P(k) for an arbitrary k and show P(k+1). Both steps are essential.",formula:"Base: prove P(1)\nStep: assume P(k); prove P(k+1)\nConclusion: ∀n ≥ 1, P(n)"},
+ {title:"3. A key summation formula",body:"A classic induction exercise proves the sum of the first n positive integers. In the induction step, append the (k+1)th term, then simplify to the same formula with k+1 in place of n.",formula:"1 + 2 + ⋯ + n = n(n+1)/2"}
+ ],examples:[
+ {title:"Induction: sum of first n integers",question:"Prove 1+2+⋯+n=n(n+1)/2 for n≥1.",steps:["Base n=1: left 1; right 1(2)/2=1.","Assume 1+⋯+k=k(k+1)/2.","Then 1+⋯+k+(k+1)=k(k+1)/2+(k+1).","Factor: (k+1)(k+2)/2, the formula for k+1.","By induction, it holds for every n≥1."]},
+ {title:"Contradiction: no smallest positive rational",question:"Assume a smallest positive rational r exists.",steps:["Suppose r is the smallest positive rational.","The number r/2 is rational and positive.","But 0<r/2<r, contradicting that r is smallest.","Therefore no smallest positive rational exists."]}
+ ],trap:"Never omit the base case, and do not assume P(k+1) in the inductive hypothesis."
+},
+{
+ week:10,title:"Combinatorics",short:"Counting, permutations and combinations",focus:false,
+ intro:"Decide when ordering matters, then choose the correct counting rule or formula.",
+ goals:["Apply the product rule and factorials.","Calculate nPr when order matters.","Calculate nCr when order does not matter."],
+ sections:[
+ {title:"1. Counting rules",body:"The product rule multiplies the numbers of independent sequential choices. For example, 3 shirts and 4 trousers produce 3×4=12 outfits. For independent alternative cases that cannot overlap, use the sum rule.",formula:"n! = n(n−1)(n−2)⋯1, with 0! = 1"},
+ {title:"2. Permutations: order matters",body:"Use permutations for ordered selections such as 1st, 2nd and 3rd place, or arranging distinct books. Selecting r distinct items from n without replacement in order gives nPr.",formula:"P(n,r) = n! / (n−r)!"},
+ {title:"3. Combinations: order does not matter",body:"Use combinations for groups or committees. Selecting the same members in a different order does not create a new group. If objects repeat, special counting considerations apply.",formula:"C(n,r) = n! / [r!(n−r)!]\nC(n,r) = C(n,n−r)"}
+ ],examples:[
+ {title:"Permutation",question:"How many ways to award gold, silver and bronze to 5 runners?",steps:["Order matters; select and arrange 3 out of 5.","P(5,3)=5!/(5−3)!=5×4×3.","Answer: 60."]},
+ {title:"Combination",question:"How many 3-person teams can be chosen from 5 students?",steps:["Order does not matter.","C(5,3)=5!/(3!2!)=(5×4)/(2×1).","Answer: 10."]}
+ ],trap:"A committee is usually a combination; ranked positions or assigned distinct roles are usually permutations."
+},
+{
+ week:11,title:"Relations & functions",short:"Properties, composition, closure and function operations",focus:false,
+ intro:"Understand relations between sets, their properties, and how to evaluate or combine functions.",
+ goals:["Recognize reflexive, symmetric, antisymmetric and transitive relations.","Understand relation composition and closures.","Evaluate function arithmetic and composition."],
+ sections:[
+ {title:"1. Binary relations",body:"A binary relation R on A is any subset of A×A. Reflexive means (a,a)∈R for every a. Symmetric means aRb implies bRa. Antisymmetric means aRb and bRa together imply a=b. Transitive means aRb and bRc imply aRc."},
+ {title:"2. Equivalence and order relations",body:"An equivalence relation is reflexive, symmetric and transitive. A partial order is reflexive, antisymmetric and transitive. Reflexive closure adds missing diagonal pairs; symmetric closure adds missing reversed pairs; transitive closure adds pairs needed to connect paths.",formula:"R ⊆ A × A\nR∘S = {(a,c) : ∃b ((a,b)∈S ∧ (b,c)∈R)}",note:"Composition uses S first and then R in the convention shown."},
+ {title:"3. Functions and operations",body:"A function assigns every input in its domain exactly one output. For functions f and g, (f+g)(x)=f(x)+g(x) and (fg)(x)=f(x)g(x) where defined. Composition (f∘g)(x) means apply g first and then f.",formula:"(f ∘ g)(x) = f(g(x))\n(f + g)(x) = f(x) + g(x)"}
+ ],examples:[
+ {title:"Determine properties",question:"On A={1,2}, let R={(1,1),(2,2),(1,2)}.",steps:["Reflexive: yes, both diagonal pairs exist.","Symmetric: no, (1,2) exists but (2,1) does not.","Antisymmetric: yes, no distinct pair occurs in both directions.","Transitive: yes, all required compositions are present."]},
+ {title:"Function composition",question:"If f(x)=2x+1 and g(x)=x², find (f∘g)(3).",steps:["Compute the inner function first: g(3)=3²=9.","Then f(9)=2(9)+1=19.","Answer: (f∘g)(3)=19."]}
+ ],trap:"Antisymmetric does NOT mean 'not symmetric'. A relation can be both symmetric and antisymmetric (for example equality)."
+}
+];
+
+const FLASHCARDS = [
+[1,"What is a proposition?","A declarative sentence that is either true or false."],[1,"When is p → q false?","Only when p is true and q is false."],[1,"When is p ∧ q true?","When both p and q are true."],[1,"What does p ↔ q mean?","p and q have the same truth value."],[1,"Is logical OR inclusive?","Yes. p ∨ q is true when one or both are true."],
+[2,"How many rows for n logical variables?","2ⁿ rows."],[2,"State De Morgan's law for a conjunction.","¬(p ∧ q) ≡ ¬p ∨ ¬q."],[2,"Rewrite p → q without →.","¬p ∨ q."],[2,"What is a tautology?","An expression true on every truth-table row."],[2,"What is a contradiction?","An expression false on every truth-table row."],
+[3,"Negate ∀x P(x).","∃x ¬P(x)."],[3,"Negate ∃x P(x).","∀x ¬P(x)."],[3,"What does ∃ mean?","There exists at least one."],[3,"What disproves ∀x P(x)?","One counterexample with P(x) false."],[3,"How do you express 'every A is B'?","∀x(A(x) → B(x))."],
+[4,"Premise vs conclusion?","Premises provide assumptions; the conclusion is what is claimed to follow."],[4,"What does ∴ mean?","Therefore."],[4,"What is a valid argument?","There is no case where all premises are true and the conclusion is false."],[4,"What is universal instantiation?","From ∀x P(x), infer P(a) for a member a of the domain."],
+[5,"State Modus Ponens.","p → q; p; therefore q."],[5,"State Modus Tollens.","p → q; ¬q; therefore ¬p."],[5,"State Disjunctive Syllogism.","p ∨ q; ¬p; therefore q."],[5,"State Hypothetical Syllogism.","p → q; q → r; therefore p → r."],[5,"What is affirming the consequent?","Invalid: p → q; q; therefore p."],
+[6,"How does a truth table disprove validity?","Find a row with all premises true and the conclusion false."],[6,"What is denying the antecedent?","Invalid: p → q; ¬p; therefore ¬q."],[6,"What is an ad hominem fallacy?","Attacking a person instead of their argument."],[6,"What is a false dilemma?","Presenting only two possibilities when more exist."],
+[7,"What is A ∩ B?","Elements that belong to both A and B."],[7,"What is A ∪ B?","Elements that belong to A or B or both."],[7,"How do you count |A ∪ B|?","|A| + |B| − |A ∩ B|."],[7,"What is A − B?","Elements in A but not in B."],
+[8,"What form does an even integer take?","n = 2k for some integer k."],[8,"What form does an odd integer take?","n = 2k+1 for some integer k."],[8,"What is the contrapositive of p → q?","¬q → ¬p."],[8,"Does checking examples prove ∀n P(n)?","No. You need a general proof."],
+[9,"What are the steps of induction?","Base case; assume P(k); prove P(k+1)."],[9,"Sum of the first n positive integers?","n(n+1)/2."],[9,"How does contradiction work?","Assume the negation and derive an impossibility."],[9,"Can induction omit the base case?","No; both the base case and step are needed."],
+[10,"Permutation or combination for a committee?","Combination (order does not matter)."],[10,"Permutation formula?","P(n,r)=n!/(n−r)!."],[10,"Combination formula?","C(n,r)=n!/[r!(n−r)!]."],[10,"What is 0!?","1."],
+[11,"When is a relation reflexive?","When every a is related to itself."],[11,"When is a relation symmetric?","Whenever aRb, also bRa."],[11,"When is a relation transitive?","Whenever aRb and bRc, also aRc."],[11,"What is (f∘g)(x)?","f(g(x)); apply g first."],[11,"What makes a function a function?","Every input has exactly one output."]
+];
+
+const REFERENCES = [
+ {title:"Logical operators",items:[["NOT","¬p : flips truth value"],["AND","p ∧ q : both true"],["OR","p ∨ q : at least one true"],["Implication","p → q : false only for T → F"],["Biconditional","p ↔ q : equal truth values"],["Rows","n variables require 2ⁿ rows"]]},
+ {title:"Logical equivalences",items:[["De Morgan 1","¬(p∧q) ≡ ¬p∨¬q"],["De Morgan 2","¬(p∨q) ≡ ¬p∧¬q"],["Conditional","p→q ≡ ¬p∨q"],["Contrapositive","p→q ≡ ¬q→¬p"],["Double negation","¬¬p ≡ p"],["Absorption","p∨(p∧q) ≡ p"]]},
+ {title:"Quantifiers & negation",items:[["Universal","∀x P(x) : for every x"],["Existential","∃x P(x) : at least one x"],["Negate all","¬∀x P(x) ≡ ∃x ¬P(x)"],["Negate some","¬∃x P(x) ≡ ∀x ¬P(x)"],["All A are B","∀x(A(x)→B(x))"],["Some A are B","∃x(A(x)∧B(x))"]]},
+ {title:"Rules of inference",items:[["Modus Ponens","p→q, p ⊢ q"],["Modus Tollens","p→q, ¬q ⊢ ¬p"],["Hypothetical Syllogism","p→q, q→r ⊢ p→r"],["Disjunctive Syllogism","p∨q, ¬p ⊢ q"],["Simplification","p∧q ⊢ p"],["Validity","No row: all premises T and conclusion F"]]},
+ {title:"Set theory",items:[["Union","A ∪ B : either or both"],["Intersection","A ∩ B : in both"],["Difference","A−B = A∩Bᶜ"],["Counting union","|A∪B| = |A|+|B|−|A∩B|"],["De Morgan","(A∪B)ᶜ = Aᶜ∩Bᶜ"]]},
+ {title:"Proof methods",items:[["Even and odd","Even: 2k; odd: 2k+1"],["Direct proof","Assume p, derive q"],["Contrapositive","Assume ¬q, derive ¬p"],["Contradiction","Assume ¬P, derive impossibility"],["Induction","Base P(1); P(k) ⇒ P(k+1)"],["Arithmetic sum","1+⋯+n=n(n+1)/2"]]},
+ {title:"Combinatorics",items:[["Factorial","n! = n(n−1)⋯1; 0!=1"],["Permutation","P(n,r) = n!/(n−r)!"],["Combination","C(n,r) = n!/[r!(n−r)!]"],["Symmetry","C(n,r) = C(n,n−r)"],["Product rule","m independent choices × n choices = mn"]]},
+ {title:"Relations & functions",items:[["Reflexive","aRa for every a"],["Symmetric","aRb ⇒ bRa"],["Antisymmetric","aRb ∧ bRa ⇒ a=b"],["Transitive","aRb ∧ bRc ⇒ aRc"],["Equivalence","Reflexive + symmetric + transitive"],["Composition","(f∘g)(x) = f(g(x))"]]}
+];
+
+// Question format: [week, question, [A, B, C, D], correctOptionIndex, explanation]
+const QUESTIONS = [
+[1,"Which sentence is a proposition?",["Please open the window.","What is your age?","11 is a prime number.","Study harder!"],2,"A proposition must be a declarative statement with a truth value. 11 is prime is true."],
+[1,"If p=T and q=F, what is p ∧ q?",["T","F","Both","Undefined"],1,"Conjunction is true only when both operands are true."],
+[1,"If p=F and q=T, what is p ∨ q?",["F","T","Undefined","Neither"],1,"Inclusive OR is true whenever at least one operand is true."],
+[1,"Which assignment makes p → q FALSE?",["p=T, q=T","p=F, q=F","p=F, q=T","p=T, q=F"],3,"The only false case for implication is true antecedent and false consequent."],
+[1,"When is p ↔ q true?",["Only when p is T","When p and q differ","When p and q agree","Only when q is F"],2,"A biconditional is true when both sides have the same truth value."],
+[1,"What is ¬p if p is false?",["False","True","Unknown","Both"],1,"Negation reverses the truth value."],
+[1,"Translate 'p and not q'.",["p ∨ ¬q","¬p ∧ q","p ∧ ¬q","¬(p ∨ q)"],2,"'And' means ∧ and 'not q' is ¬q."],
+[1,"In standard propositional logic, 'p or q' is:",["Exclusive only","Inclusive","Always false","Always true"],1,"Logical ∨ is inclusive: both p and q may be true."],
+[1,"If p=F and q=F, find p → q.",["False","True","Cannot determine","Contradiction"],1,"Implication with a false antecedent is true in the truth-table definition."],
+[1,"How many propositional variables appear in (p ∧ q) ∨ ¬r?",["1","2","3","4"],2,"The distinct variables are p, q and r."],
+[1,"Find ¬(T ∨ F).",["T","F","Both","Undefined"],1,"T ∨ F is true; negating gives false."],
+[1,"If p=T and q=T, find ¬p ∨ q.",["F","T","Undefined","Cannot tell"],1,"¬p is false; false OR true = true."],
+
+[2,"How many rows does a truth table with 3 variables have?",["3","6","8","9"],2,"For n independent variables, construct 2ⁿ rows: 2³=8."],
+[2,"Which is a tautology?",["p ∧ ¬p","p ∨ ¬p","p → ¬p","p ∧ q"],1,"Excluded middle p ∨ ¬p is true for both possible values of p."],
+[2,"Which is a contradiction?",["p ∧ ¬p","p ∨ ¬p","p → p","p ↔ p"],0,"p and not p cannot both be true."],
+[2,"What is equivalent to ¬(p ∧ q)?",["¬p ∧ ¬q","p ∨ q","¬p ∨ ¬q","p → q"],2,"By De Morgan's law, negate both terms and switch AND to OR."],
+[2,"What is equivalent to p → q?",["p ∨ q","¬p ∨ q","p ∧ ¬q","q → p"],1,"Material implication satisfies p → q ≡ ¬p ∨ q."],
+[2,"What is the negation of p → q?",["¬p → ¬q","p ∧ ¬q","¬p ∧ q","q → p"],1,"Negation of an implication is p AND not q."],
+[2,"Two formulas are logically equivalent when:",["They use the same letters","They have the same final truth-table column","Both have an implication","They each have at least one true row"],1,"Logical equivalence requires matching truth values for every variable assignment."],
+[2,"Which is equivalent to ¬(p ∨ q)?",["¬p ∧ ¬q","¬p ∨ ¬q","p ∧ q","p → q"],0,"De Morgan: NOT(OR) = AND of negations."],
+[2,"What is ¬¬p equivalent to?",["¬p","p","p ∧ ¬p","F"],1,"Double negation restores p."],
+[2,"How many rows for 4 distinct propositional variables?",["8","12","16","24"],2,"2⁴ = 16 possible truth assignments."],
+[2,"What kind of expression has both true and false rows?",["Tautology","Contradiction","Contingency","Equivalence"],2,"A contingency is sometimes true and sometimes false."],
+[2,"Which expression is equivalent to p ↔ q?",["p ∧ q","(p → q) ∧ (q → p)","p ∨ q","p → ¬q"],1,"A biconditional requires both directions of implication."],
+
+[3,"The symbol ∀ means:",["There exists","For all","Implies","And"],1,"∀ is the universal quantifier: for every member of the domain."],
+[3,"The symbol ∃ means:",["At least one exists","Exactly one exists","Every one exists","None exists"],0,"The existential quantifier requires one or more witnesses, not exactly one."],
+[3,"Negate ∀x P(x).",["∀x ¬P(x)","∃x ¬P(x)","∃x P(x)","¬∃x ¬P(x)"],1,"Negating ∀ produces ∃ with the predicate negated."],
+[3,"Negate ∃x P(x).",["∀x ¬P(x)","∃x ¬P(x)","∀x P(x)","P(x)"],0,"There are no witnesses exactly when every element fails P."],
+[3,"A single counterexample can disprove:",["∃x P(x)","∀x P(x)","P(a) for a fixed true a","Nothing"],1,"One element not satisfying P is enough to disprove a universal statement."],
+[3,"Over all people, 'every student studies' is:",["∀x(S(x) ∧ T(x))","∃x(S(x) ∧ T(x))","∀x(S(x) → T(x))","∃x(S(x) → T(x))"],2,"Use universal implication: anyone who is a student must study."],
+[3,"Over all people, 'some students study' is:",["∀x(S(x) → T(x))","∃x(S(x) ∧ T(x))","∀x(S(x) ∧ T(x))","∃x(S(x) → T(x))"],1,"Existential 'some A are B' combines both properties with ∧."],
+[3,"What is a predicate P(x)?",["A statement with a variable whose truth depends on its value","A sentence that is always false","An operator for implication","A number"],0,"A predicate becomes a proposition when its variable is assigned or quantified."],
+[3,"Negate 'Everyone passed the exam'.",["Nobody passed","At least one person did not pass","Everyone failed","At least one person passed"],1,"The negation of 'everyone' is 'someone did not'."],
+[3,"Are ∀x∃y R(x,y) and ∃y∀x R(x,y) always equivalent?",["Yes","No","Only when R is false","Only when the domain is empty"],1,"The first allows a different y for each x; the second requires a single y for all x."],
+[3,"To show ∃x P(x) is true, it is sufficient to:",["Check every x","Give one witness satisfying P","Find one failure","Prove a contradiction"],1,"One valid witness establishes an existential claim."],
+[3,"If the domain is {1,2,3}, is ∃x(x²=4) true?",["No","Yes, using x=2","Yes, using x=3","It is undefined"],1,"x=2 is in the domain and satisfies x²=4."],
+
+[4,"A logical argument consists of:",["Only a conclusion","Premises and a conclusion","Only variables","A truth table only"],1,"Premises are assumptions offered in support of a conclusion."],
+[4,"What does ∴ represent?",["And","Or","Therefore","Not"],2,"∴ introduces the conclusion of an argument."],
+[4,"Symbolize 'If A, then B; A; therefore B'.",["A→B, B ∴ A","A∨B, A ∴ B","A→B, A ∴ B","A∧B ∴ ¬B"],2,"This is the classic Modus Ponens argument pattern."],
+[4,"If every human is mortal and Socrates is human, the conclusion is:",["All humans are Socrates","Socrates is mortal","Socrates is not human","Nothing follows"],1,"Instantiate the universal premise for Socrates, then apply Modus Ponens."],
+[4,"A valid argument is one in which:",["All premises must be factually true","The conclusion is never false","True premises cannot lead to a false conclusion","All statements are tautologies"],2,"Validity rules out an assignment with all premises true and conclusion false."],
+[4,"From ∀x P(x), what may be inferred for a named a in the domain?",["¬P(a)","∃x ¬P(x)","P(a)","Nothing"],2,"Universal instantiation applies a universal claim to each member of its domain."],
+[4,"Symbolize 'All cats are mammals' over all animals.",["∃x(C(x) ∧ M(x))","∀x(C(x)→M(x))","∀x(C(x)∧M(x))","∀x(M(x)→C(x))"],1,"The condition 'if x is a cat' implies 'x is a mammal'."],
+[4,"What is the role of a premise?",["It states the claimed final conclusion","It is an assumption used to derive the conclusion","It must contain ∀","It always contains a negation"],1,"Premises are the assumptions from which the conclusion is argued."],
+[4,"If ∀x(P(x)→Q(x)) and P(a) hold, which rule finishes the argument after instantiation?",["Modus Ponens","Addition","Contradiction","Denying antecedent"],0,"Instantiate P(a)→Q(a), then use P(a) to infer Q(a) by MP."],
+[4,"What does the expression P₁ ∧ P₂ → C test (with the premises grouped)?",["Whether a single proposition is false","Whether premises jointly imply a conclusion","Whether C is always false","The number of variables"],1,"A valid argument has the conditional (P₁ ∧ P₂) → C as a tautology."],
+[4,"If an argument is valid but its premises are false, which is correct?",["The argument is automatically invalid","Its conclusion is automatically false","Validity still concerns its logical form","Its conclusion must be true"],2,"Truth of premises and validity of the inference are distinct concepts."],
+[4,"If p stands for 'server works' and q for 'email sends', how is 'If server works then email sends' written?",["q→p","p∧q","p→q","p∨¬q"],2,"The antecedent is p and the consequent is q."],
+
+[5,"What is Modus Ponens?",["p→q, p ∴ q","p→q, q ∴ p","p→q, ¬p ∴ ¬q","p∨q, ¬q ∴ ¬p"],0,"Modus Ponens affirms the antecedent of a conditional."],
+[5,"What is Modus Tollens?",["p→q, p ∴ q","p→q, ¬q ∴ ¬p","p→q, q ∴ p","p∧q ∴ p∨q"],1,"Modus Tollens denies the consequent and infers denial of the antecedent."],
+[5,"p→q and q→r imply:",["r→p","p→r","q→p","¬p→r"],1,"Hypothetical Syllogism chains implications."],
+[5,"From p∨q and ¬p, conclude:",["p","¬q","q","p∧q"],2,"Disjunctive Syllogism eliminates one disjunct."],
+[5,"Which argument is INVALID?",["p→q, p ∴ q","p→q, ¬q ∴ ¬p","p→q, q ∴ p","p∨q, ¬p ∴ q"],2,"Inferring p from p→q and q is affirming the consequent."],
+[5,"From p∧q, which follows by simplification?",["¬p","p","¬q","¬p∨¬q"],1,"A true conjunction guarantees each conjunct is true."],
+[5,"From p and q, which follows by conjunction?",["p→¬q","¬p∨q","p∧q","p↔¬q"],2,"Conjunction combines two separately established propositions."],
+[5,"From p alone, which follows by addition?",["p∨q","p∧q","q","¬p"],0,"An OR statement is true if one disjunct, p, is already true."],
+[5,"'If I study, I pass. I did not pass. Therefore, I did not study.' is:",["Affirming the consequent","Modus Tollens","Modus Ponens","Denying the antecedent"],1,"It follows p→q, ¬q ∴ ¬p."],
+[5,"'If the bus arrives, I am on time. The bus did not arrive; I am late.' is:",["Valid Modus Ponens","Valid Modus Tollens","Invalid denying the antecedent","Valid conjunction"],2,"p→q, ¬p ∴ ¬q is not valid; another mode of transport may keep you on time."],
+[5,"Which rule concludes q from p∨q and ¬p?",["Simplification","Disjunctive Syllogism","Hypothetical Syllogism","Conjunction"],1,"This is exactly the disjunctive syllogism form."],
+[5,"Which pattern is Hypothetical Syllogism?",["p∧q ∴ q","p→q, q→r ∴ p→r","p→q, ¬q ∴ ¬p","p ∴ p∨q"],1,"HS chains two conditionals sharing the middle statement q."],
+
+[6,"An argument is invalid if:",["Its premises are unpopular","Its conclusion is sometimes false","At least one row has all true premises and a false conclusion","It contains a conditional"],2,"One countermodel is enough to establish invalidity."],
+[6,"Which assignment refutes p→q, q ∴ p?",["p=T,q=T","p=F,q=T","p=T,q=F","p=F,q=F"],1,"For p=F,q=T, both premises hold but the conclusion p is false."],
+[6,"Attacking a speaker instead of their claim is:",["Ad hominem","Modus Ponens","Induction","Disjunction"],0,"Ad hominem is an informal fallacy targeting the person rather than the argument."],
+[6,"Misrepresenting an opponent's claim so it is easier to attack is:",["False dilemma","Straw man","Contrapositive","Modus Tollens"],1,"A straw man substitutes a distorted, weaker version of a position."],
+[6,"Assuming there are only two choices when others exist is:",["Hasty generalization","False dilemma","Distributive law","Tautology"],1,"False dilemma artificially restricts available options."],
+[6,"Drawing a conclusion about everyone from two cases is often:",["Hypothetical Syllogism","Hasty generalization","Universal instantiation","Conjunction"],1,"A tiny or unrepresentative sample cannot justify a sweeping conclusion."],
+[6,"What would establish that p∨q, ¬p ∴ q is valid?",["A row with premises true, conclusion false","A valid inference rule such as Disjunctive Syllogism","A false real-world premise","A missing truth-table row"],1,"The argument is an instance of DS, which is valid."],
+[6,"For validity by truth table, inspect rows where:",["The conclusion is true","At least one premise is false","All premises are true","Every variable is false"],2,"Only rows satisfying all premises can serve as counterexamples."],
+[6,"Affirming the consequent has which form?",["p→q, q ∴ p","p→q, p ∴ q","p→q, ¬q ∴ ¬p","p∧q ∴ p"],0,"This invalid form assumes q can only arise from p."],
+[6,"If a single counterexample exists, the argument is:",["Sound","Valid","Invalid","A tautology"],2,"A true-premises/false-conclusion row disproves validity."],
+[6,"What is a sound argument?",["A valid argument with true premises","An invalid argument with true premises","Any argument with a true conclusion","An argument with no conclusion"],0,"Soundness combines validity with truth of premises."],
+[6,"Which is NOT a reliable validity test?",["Use an inference-rule derivation","Show the associated conditional is a tautology","Find no counterexample in a complete truth table","Check that the conclusion sounds plausible"],3,"Plausibility alone is not a proof of valid inference."],
+
+[7,"A={1,2,3} and B={3,4}. What is A∩B?",["{1,2,3,4}","{3}","{1,2}","∅"],1,"Intersection contains elements common to both sets."],
+[7,"For A={1,2,3}, B={3,4}, find A∪B.",["{3}","{1,2}","{1,2,3,4}","{4}"],2,"Union includes every distinct member of either set."],
+[7,"A={1,2,3}, B={2,4}. Find A−B.",["{1,3}","{2}","{4}","{1,2,3,4}"],0,"Remove from A any element also in B."],
+[7,"If |A|=12, |B|=9 and |A∩B|=4, find |A∪B|.",["25","17","21","5"],1,"Use inclusion-exclusion: 12+9−4=17."],
+[7,"Which is De Morgan's law for sets?",["(A∪B)ᶜ=Aᶜ∩Bᶜ","(A∪B)ᶜ=Aᶜ∪Bᶜ","A−B=B−A","A∪B=A∩B"],0,"The complement of a union equals the intersection of complements."],
+[7,"What is |∅|?",["1","0","Undefined","Infinite"],1,"The empty set has zero elements."],
+[7,"If A ⊆ B, then which must hold?",["A∩B=A","A∩B=∅","B⊆A","A∪B=A"],0,"Every element of A already belongs to B; their intersection is A."],
+[7,"Which set is a universal set?",["The empty set","The set of all objects under discussion","Only the intersection","Any singleton"],1,"U defines the full domain relative to which complements are taken."],
+
+[8,"An even integer n can be written as:",["2k+1","2k","k/2","2k−1"],1,"The definition of even is n=2k for some integer k."],
+[8,"What is the contrapositive of p→q?",["q→p","¬p→¬q","¬q→¬p","p→¬q"],2,"Contrapositive swaps the sides and negates both."],
+[8,"Which method assumes the premise and derives the conclusion?",["Direct proof","Contradiction","Induction","Exhaustive search only"],0,"Direct proof establishes p→q by proceeding from p to q."],
+[8,"The sum of two even integers is even because:",["2a+2b=2(a+b)","2a+2b=2(a+b)+1","Even numbers cannot be added","All odd numbers are prime"],0,"Factoring out 2 shows the sum is a multiple of 2."],
+[8,"Which is logically equivalent to 'if n² is even then n is even'?",["If n is even then n² is even","If n is odd then n² is odd","If n² is odd then n is odd","If n is odd then n² is even"],1,"The contrapositive negates conclusion and premise: n odd implies n² odd."],
+[8,"Can testing 100 values prove a claim for all integers?",["Always","Only for even claims","No, not in general","If all values are positive"],2,"A universal theorem requires reasoning that covers all values in its domain."],
+[8,"An odd integer has which form?",["2k","2k+1","k²","4k"],1,"An odd integer is exactly one more than an even integer."],
+[8,"What is the converse of p→q?",["¬q→¬p","q→p","¬p→¬q","p∧q"],1,"The converse swaps hypothesis and conclusion without negating."],
+
+[9,"What is the first step in mathematical induction?",["Assume P(k+1)","Prove the base case","Conclude P(n)","Assume every claim"],1,"The base case anchors the induction chain."],
+[9,"What is the induction hypothesis?",["Assume P(k) for an arbitrary k","Assume P(k+1)","Assume P(0) is false","Assume the theorem is false"],0,"The induction step assumes P(k) and uses it to prove P(k+1)."],
+[9,"Find 1+2+3+4+5.",["10","12","15","20"],2,"The first five integers sum to 5(6)/2=15."],
+[9,"Proof by contradiction begins by:",["Assuming the target statement is false","Checking many numerical values","Assuming the theorem true","Drawing a Venn diagram"],0,"Assume ¬P and derive an impossibility, then infer P."],
+[9,"In the induction step, what must you prove?",["P(k) given P(k+1)","P(k+1) given P(k)","Only P(1)","Only P(2)"],1,"The inductive step advances the assertion from k to k+1."],
+[9,"If the base case fails, the proposed induction proof is:",["Still complete","Incomplete or incorrect","Automatically valid","A direct proof"],1,"Without a valid base, the chain has no starting point."],
+[9,"For n=4, n(n+1)/2 equals:",["8","9","10","12"],2,"4×5/2 = 10."],
+[9,"A contradiction is best represented by:",["p∨¬p","p∧¬p","p→p","p↔p"],1,"A proposition and its negation cannot both be true."],
+
+[10,"Select 3 students from 8 for an unordered committee. Which formula?",["P(8,3)","C(8,3)","8³","8+3"],1,"A committee is an unordered selection, so use combinations."],
+[10,"How many ways to award 1st and 2nd place among 5 people?",["10","15","20","25"],2,"P(5,2)=5×4=20 because order matters."],
+[10,"Calculate C(5,2).",["10","20","25","5"],0,"5!/(2!3!) = (5×4)/2 = 10."],
+[10,"Calculate P(4,3).",["4","12","24","64"],2,"4×3×2 = 24."],
+[10,"What is 0!?",["0","1","Undefined","Infinity"],1,"By definition, 0!=1."],
+[10,"You have 3 shirts and 4 trousers. How many outfits?",["7","12","24","1"],1,"By the product rule: 3×4=12 combinations of choices."],
+[10,"Which is equal to C(n,r)?",["C(n,n−r)","P(n,r)","n!","C(r,n) for every n,r"],0,"Choosing r items corresponds one-to-one with choosing the n−r items to omit."],
+[10,"How many distinct arrangements of A, B, C?",["3","6","9","27"],1,"3!=3×2×1=6."],
+
+[11,"A relation R on A is reflexive if:",["(a,a)∈R for every a∈A","aRb implies bRa","aRb implies a=b","No pairs are allowed"],0,"Reflexivity requires every diagonal pair."],
+[11,"A relation is symmetric if:",["aRb ⇒ bRa","aRb ∧ bRa ⇒ a=b","aRb ∧ bRc ⇒ aRc","aRa for all a"],0,"Symmetry requires the reverse of every related pair."],
+[11,"A relation is transitive if:",["aRb implies bRa","aRb and bRc imply aRc","Every member is related to itself","No two members are related"],1,"Transitivity closes two-step paths."],
+[11,"An equivalence relation must be:",["Reflexive, symmetric and transitive","Symmetric and antisymmetric only","Reflexive only","Transitive only"],0,"An equivalence relation satisfies all three properties."],
+[11,"If f(x)=2x+1 and g(x)=x², find (f∘g)(2).",["9","25","16","10"],0,"g(2)=4; f(4)=2×4+1=9."],
+[11,"Which condition defines a function?",["Each input has exactly one output","Each output has exactly one input","Each input has two outputs","All outputs are distinct"],0,"Functions associate each domain input with one unique output (outputs may repeat)."],
+[11,"A partial order must be:",["Reflexive, symmetric, transitive","Reflexive, antisymmetric, transitive","Only symmetric","Only transitive"],1,"Partial orders require reflexivity, antisymmetry, and transitivity."],
+[11,"If f(x)=x+2 and g(x)=3x, find (g∘f)(1).",["5","7","9","11"],2,"f(1)=3, then g(3)=9. Composition order matters."]
+];
+
+</script>
+<script>
+'use strict';
+const KEY = 'ug-cse1101-study-v1';
+const $ = (sel, root=document) => root.querySelector(sel);
+const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
+const E = value => String(value).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let state = {done:[],history:[],theme:'light'};
+try { const saved=JSON.parse(localStorage.getItem(KEY)||'{}'); state={...state,...saved,done:Array.isArray(saved.done)?saved.done:[],history:Array.isArray(saved.history)?saved.history:[]}; }catch(e) { /* private mode or blocked storage */ }
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){ /* site remains usable */ }};
+let quizSession=null, quizTimer=null, flashSession={week:'midterm',index:0,flipped:false,cards:[]};
+let activeRoute='dashboard';
+function setTheme(theme){state.theme=theme;document.documentElement.dataset.theme=theme==='dark'?'dark':'light';save();}
+setTheme(state.theme);
+function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),2500);}
+function stopTimer(){if(quizTimer){clearInterval(quizTimer);quizTimer=null;}}
+function progress(){return state.done.filter(w=>Number.isInteger(w)&&w>=1&&w<=11).length;}
+function accuracy(){const attempts=state.history;const total=attempts.reduce((s,x)=>s+x.total,0);return total?Math.round(100*attempts.reduce((s,x)=>s+x.correct,0)/total):null;}
+function slugRoute(){const h=location.hash.replace(/^#/,'');return h || 'dashboard';}
+function navigate(hash){location.hash=hash;}
+function linkWeek(w){return `#lessons/${w}`;}
+function updateChrome(view){
+  $$('#main-nav a').forEach(a=>a.classList.toggle('active',a.dataset.nav===view));
+  const wMatch=slugRoute().match(/^lessons\/(\d+)$/);
+  $$('#week-nav a').forEach(a=>a.classList.toggle('active',wMatch && Number(a.dataset.week)===Number(wMatch[1])));
+  const n=progress();$('#side-progress-text').textContent=`${n} / 11`;$('#side-progress-bar').style.width=`${n/11*100}%`;
+  $$('#week-nav a').forEach(a=>{const w=Number(a.dataset.week),check=$('.week-check',a); if(check)check.textContent=state.done.includes(w)?'✓':'';});
+  const names={dashboard:'Dashboard',lessons:'Study lessons',practice:'Practice questions',mocks:'Mock midterms',flashcards:'Flashcards',reference:'Formula sheet'};
+  $('#breadcrumb').innerHTML=`University of Guyana <span>/</span> ${E(names[view]||'Study hub')}`;
+}
+function initNav(){
+  $('#week-nav').innerHTML=LESSONS.map(l=>`<a data-week="${l.week}" href="${linkWeek(l.week)}"><span class="week-number">${String(l.week).padStart(2,'0')}</span><span class="week-label">${E(l.title)}</span><span class="week-check"></span></a>`).join('');
+  const toggle=()=>setTheme(state.theme==='light'?'dark':'light');
+  $('#theme-toggle').addEventListener('click',toggle);$('#top-theme-toggle').addEventListener('click',toggle);
+  $('#menu-button').addEventListener('click',()=>openMenu(!$('#sidebar').classList.contains('open')));
+  $('#menu-overlay').addEventListener('click',()=>openMenu(false));
+  $$('#sidebar a').forEach(a=>a.addEventListener('click',()=>openMenu(false)));
+  window.addEventListener('hashchange',render);
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')openMenu(false);if(activeRoute==='flashcards'&&event.target.tagName!=='SELECT'){if(event.key==='ArrowRight')nextFlash(1);if(event.key==='ArrowLeft')nextFlash(-1);}});
+  render();
+}
+function openMenu(isOpen){$('#sidebar').classList.toggle('open',isOpen);$('#menu-overlay').hidden=!isOpen;$('#menu-button').setAttribute('aria-expanded',String(isOpen));}
+function render(){
+  stopTimer();quizSession=null;
+  const route=slugRoute(), parts=route.split('/');activeRoute=parts[0];
+  const valid=['dashboard','lessons','practice','mocks','flashcards','reference'];if(!valid.includes(activeRoute))activeRoute='dashboard';
+  updateChrome(activeRoute);
+  if(activeRoute==='dashboard')renderDashboard();
+  if(activeRoute==='lessons')renderLessons(Number(parts[1])||1);
+  if(activeRoute==='practice')renderPracticeSetup();
+  if(activeRoute==='mocks')renderMocks();
+  if(activeRoute==='flashcards')renderFlashcards();
+  if(activeRoute==='reference')renderReference();
+  window.scrollTo({top:0,behavior:'instant'});
+}
+function pageHeading(kicker,heading,sub,action=''){return `<div class="page-heading"><div><div class="eyebrow">${E(kicker)}</div><h1>${E(heading)}</h1><p>${E(sub)}</p></div>${action}</div>`;}
+function topicCard(l){return `<a class="topic-card card" href="${linkWeek(l.week)}"><div class="topic-card-top"><span class="week-tag ${l.focus?'':'future'}">WEEK ${String(l.week).padStart(2,'0')} ${l.focus?'· CORE':''}</span>${state.done.includes(l.week)?'<span class="done-tag">✓ Complete</span>':''}</div><h3>${E(l.title)}</h3><p>${E(l.short)}</p><span class="bottom-link">Open lesson ↗</span></a>`;}
+function renderDashboard(){
+  const next=LESSONS.find(l=>!state.done.includes(l.week))||LESSONS[0];
+  const attempts=state.history, last=attempts[attempts.length-1];
+  $('#main').innerHTML=`<section class="hero"><div><div class="eyebrow">UNIVERSITY OF GUYANA · CSE1101</div><h1>Master the logic.<br>Own the midterm.</h1><p>Clear notes, worked examples, over 100 practice questions and eight mock papers — all in one offline-ready study space.</p><div class="actions"><a class="btn primary" href="${linkWeek(next.week)}">Continue studying <span>↗</span></a><a class="btn ghost" href="#mocks">Try a mock exam</a></div></div><div class="hero-art"><span>∀x ∃y</span><small>p → q</small><small>∴ q</small></div></section>
+  <section class="stats-grid" aria-label="Study statistics"><div class="stat card"><span class="overline">TOPICS COMPLETED</span><strong>${progress()}<span style="font-size:19px;color:var(--muted)">/11</span></strong><div class="progress-track"><span style="width:${progress()/11*100}%"></span></div></div><div class="stat card"><span class="overline">PRACTICE ACCURACY</span><strong>${accuracy()===null?'—':accuracy()+'%'}</strong><small>${attempts.length?`${attempts.length} completed sessions`:'Take a quiz to get started'}</small></div><div class="stat card"><span class="overline">PRACTICE QUESTIONS</span><strong>${QUESTIONS.length}</strong><small>With explained answers</small></div></section>
+  <div class="section-head"><div><h2>Midterm priority · Weeks 1–6</h2><p>Logic, quantified arguments, inference and validity</p></div><a class="inline-link" href="#practice">Practice now ↗</a></div><section class="topic-grid">${LESSONS.filter(l=>l.focus).map(topicCard).join('')}</section>
+  <div class="callout"><span class="callout-symbol">!</span><div><strong>Check your actual midterm coverage.</strong><p>This site prioritizes Weeks 1–6 as a suggested midterm study set, not a confirmed exam boundary. Your image also includes Weeks 7–11, which are covered below. Your lecturer's instructions take priority.</p></div></div>
+  <div class="section-head"><div><h2>More from the syllabus · Weeks 7–11</h2><p>Set theory, proof methods, combinatorics, relations and functions</p></div><a class="inline-link" href="#reference">See formula sheet ↗</a></div><section class="topic-grid">${LESSONS.filter(l=>!l.focus).map(topicCard).join('')}</section>
+  ${last?`<div class="callout"><span class="callout-symbol">↗</span><div><strong>Latest result: ${last.correct}/${last.total} (${Math.round(100*last.correct/last.total)}%)</strong><p>${E(last.label)} · ${new Date(last.date).toLocaleDateString()}. Keep revisiting explanations after missed questions.</p></div></div>`:''}`;
+}
+function renderLessons(week){
+  if(week<1||week>11)week=1;
+  const l=LESSONS[week-1];
+  const para=s=>E(s),sectionBody=l.sections.map((s,i)=>`<section class="lesson-block" id="section-${i}"><h3>${E(s.title)}</h3><p>${para(s.body)}</p>${s.formula?`<div class="formula-box"><div class="formula">${para(s.formula)}</div>${s.note?`<p>${para(s.note)}</p>`:''}</div>`:''}</section>`).join('');
+  const examples=l.examples.map((ex,i)=>`<div class="worked"><div class="example-title">WORKED EXAMPLE ${i+1}</div><h4>${E(ex.title)}</h4><p>${E(ex.question)}</p><div class="steps">${ex.steps.map(x=>`<div class="step">${E(x)}</div>`).join('')}</div></div>`).join('');
+  const checkIndex=QUESTIONS.findIndex(q=>q[0]===week);
+  const quick=QUESTIONS[checkIndex];
+  $('#main').innerHTML=`${pageHeading(`WEEK ${week} / 11 · ${l.focus?'MIDTERM CORE':'EXTENDED SYLLABUS'}`,l.title,l.intro,`<span class="pill">${l.focus?'Core revision':'Additional revision'}</span>`)}<div class="study-layout"><div class="lesson-content"><article class="card lesson-panel"><h2>What you'll learn</h2><ul>${l.goals.map(g=>`<li>${E(g)}</li>`).join('')}</ul>${sectionBody}<section class="lesson-block" id="worked-examples"><h3>Worked examples</h3><p>Follow the reasoning, not just the final answer.</p>${examples}</section><div class="hint"><strong>EXAM TRAP:</strong> ${E(l.trap)}</div><section class="check-area" id="quick-check"><h4>Quick knowledge check</h4><p style="font-size:13px;color:var(--muted)">${E(quick[1])}</p><div class="answer-options" id="quick-answers">${quick[2].map((opt,i)=>`<button type="button" class="option" data-quick="${i}"><span class="option-letter">${'ABCD'[i]}</span><span>${E(opt)}</span></button>`).join('')}</div><div id="quick-feedback"></div></section><div class="lesson-actions"><button type="button" id="mark-complete" class="btn ${state.done.includes(week)?'secondary':''}">${state.done.includes(week)?'✓ Marked complete (undo)':'✓ Mark lesson complete'}</button><div class="lesson-nav"><a class="btn secondary small" href="${linkWeek(Math.max(1,week-1))}" ${week===1?'aria-disabled="true"':''}>← Previous</a><a class="btn secondary small" href="${linkWeek(Math.min(11,week+1))}">Next →</a></div></div></article></div><aside class="card lesson-toc"><h3>ON THIS PAGE</h3><div class="toc-links">${l.sections.map((s,i)=>`<a href="#section-${i}" data-scroll="section-${i}">${E(s.title)}</a>`).join('')}<a href="#worked-examples" data-scroll="worked-examples">Worked examples</a><a href="#quick-check" data-scroll="quick-check">Knowledge check</a></div><p style="font-size:12px;color:var(--muted)">Test yourself when you're done.</p><button type="button" class="btn full" id="practice-this-week">Practice Week ${week} ↗</button></aside></div>`;
+  $('#mark-complete').addEventListener('click',()=>{state.done=state.done.includes(week)?state.done.filter(w=>w!==week):[...state.done,week].sort((a,b)=>a-b);save();renderLessons(week);updateChrome('lessons');toast(state.done.includes(week)?'Lesson marked complete':'Lesson unmarked');});
+  $('#practice-this-week').addEventListener('click',()=>{navigate('#practice');setTimeout(()=>{const s=$('#scope-select');if(s)s.value=String(week);},0);});
+  $$('#quick-answers button').forEach(b=>b.addEventListener('click',()=>{const val=Number(b.dataset.quick),correct=quick[3];$$('#quick-answers button').forEach(x=>{x.disabled=true;x.classList.toggle('correct',Number(x.dataset.quick)===correct);x.classList.toggle('incorrect',Number(x.dataset.quick)===val&&val!==correct);});$('#quick-feedback').innerHTML=`<div class="feedback"><strong>${val===correct?'Correct!':'Not quite.'}</strong>${E(quick[4])}</div>`;}));
+  $$('[data-scroll]').forEach(a=>a.addEventListener('click',ev=>{ev.preventDefault();document.getElementById(a.dataset.scroll)?.scrollIntoView({behavior:'smooth',block:'start'});}));
+}
+function scopeSelect(defaultValue='midterm'){
+  return `<select class="input" id="scope-select" aria-label="Select study topics"><option value="midterm" ${defaultValue==='midterm'?'selected':''}>Midterm focus: Weeks 1–6</option><option value="all" ${defaultValue==='all'?'selected':''}>All 11 weeks</option>${LESSONS.map(l=>`<option value="${l.week}" ${String(defaultValue)===String(l.week)?'selected':''}>Week ${l.week}: ${E(l.title)}</option>`).join('')}</select>`;
+}
+function renderPracticeSetup(){
+  $('#main').innerHTML=`${pageHeading('PRACTICE MODE','Build your practice quiz','Choose a topic range and answer questions with instant feedback and clear explanations.')}<div class="assessment-layout"><section class="card setup-card"><h2>Customize your session</h2><p>Every attempt draws a fresh mix from the question bank. You can retry as often as you like.</p><label class="form-label" for="scope-select">TOPICS TO PRACTICE</label>${scopeSelect()}<label class="form-label" for="count-select">NUMBER OF QUESTIONS</label><select class="input" id="count-select"><option value="5">5 questions · Quick warm-up</option><option value="10" selected>10 questions · Focused review</option><option value="20">20 questions · Longer practice</option></select><div class="callout" style="margin:25px 0"><span class="callout-symbol">✓</span><div><strong>Learn as you go</strong><p>After selecting an option, you'll see whether it was correct and why. Your score is saved when you finish.</p></div></div><button type="button" class="btn primary full" id="start-practice">Start practice →</button></section><aside class="card mini-list"><h3>How to use practice mode</h3><ul><li>Study a lesson and its worked examples first.</li><li>Pick one week to target a weak area.</li><li>Read explanations for every missed question.</li><li>Use the mock papers when you want an exam-like experience.</li></ul><p>You can also practice the entire 11-week course, not just the suggested midterm range.</p></aside></div>`;
+  $('#start-practice').addEventListener('click',()=>{
+    const scope=$('#scope-select').value,count=Number($('#count-select').value);
+    const pool=QUESTIONS.map((q,i)=>({q,i})).filter(({q})=>scope==='all'||(scope==='midterm'?q[0]<=6:q[0]===Number(scope))).map(x=>x.i);
+    const indices=shuffle(pool).slice(0,Math.min(count,pool.length));
+    beginQuiz(indices,false,`Practice · ${scope==='midterm'?'Weeks 1–6':scope==='all'?'All weeks':`Week ${scope}`}`);
+  });
+}
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return ((t^t>>>14)>>>0)/4294967296;};}
+function shuffle(items,rng=Math.random){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function mockQuestions(paper){const rng=mulberry32(1101+paper*4243);let chosen=[];for(let w=1;w<=6;w++){const pool=QUESTIONS.map((q,i)=>q[0]===w?i:-1).filter(i=>i>=0);chosen.push(...shuffle(pool,rng).slice(0,3));}return shuffle(chosen,rng);}
+function renderMocks(){
+  $('#main').innerHTML=`${pageHeading('EXAM SIMULATOR','Eight mock midterm papers','Each paper contains 18 questions — three from each of Weeks 1–6 — and a 35-minute timer. Answers are revealed at the end.')}
+  <div class="callout" style="margin-top:0;margin-bottom:25px"><span class="callout-symbol">i</span><div><strong>Practice exams, not official UG papers.</strong><p>The papers are original revision questions based on the visible course outline. Their Week 1–6 scope is a study assumption; confirm your midterm topics with your lecturer.</p></div></div>
+  <div class="mock-grid">${Array.from({length:8},(_,i)=>{const paper=i+1;const attempts=state.history.filter(h=>h.paper===paper),last=attempts.at(-1);return `<div class="card mock-card"><span class="number">PAPER ${String(paper).padStart(2,'0')}</span><h3>Mock midterm ${paper}</h3><p>18 questions · 35 minutes<br>Weeks 1–6 · Mixed topics</p>${last?`<div style="font-size:11px;color:var(--green);margin-bottom:10px;font-weight:800">Previous: ${last.correct}/18 (${Math.round(100*last.correct/18)}%)</div>`:''}<button class="btn ${last?'secondary':'primary'} full" data-paper="${paper}" type="button">${last?'Retake paper':'Start paper'} →</button></div>`;}).join('')}</div>`;
+  $$('[data-paper]').forEach(b=>b.addEventListener('click',()=>{const p=Number(b.dataset.paper);beginQuiz(mockQuestions(p),true,`Mock midterm ${p}`,p);}));
+}
+function beginQuiz(indices,mock,label,paper=null){stopTimer();quizSession={indices,answers:Array(indices.length).fill(null),index:0,mock,label,paper,time:mock?35*60:null,finished:false};renderQuestion();if(mock)startTimer();}
+function startTimer(){stopTimer();quizTimer=setInterval(()=>{if(!quizSession||quizSession.finished){stopTimer();return;}quizSession.time--;const el=$('#quiz-time');if(el){el.textContent=formatTime(quizSession.time);el.classList.toggle('low',quizSession.time<=300);}if(quizSession.time<=0){stopTimer();finishQuiz(true);}},1000);}
+function formatTime(seconds){return `${Math.floor(Math.max(0,seconds)/60).toString().padStart(2,'0')}:${Math.max(0,seconds%60).toString().padStart(2,'0')}`;}
+function renderQuestion(){
+  const s=quizSession;if(!s)return;
+  const i=s.index, q=QUESTIONS[s.indices[i]],answer=s.answers[i],done=answer!==null;
+  const letters='ABCD';
+  const options=q[2].map((opt,k)=>{const classes=['option'];if(done){if(s.mock){if(answer===k)classes.push('selected');}else{if(k===q[3])classes.push('correct');if(k===answer&&k!==q[3])classes.push('incorrect');}}return `<button type="button" class="${classes.join(' ')}" data-answer="${k}" ${(!s.mock&&done)?'disabled':''} aria-pressed="${answer===k}"><span class="option-letter">${letters[k]}</span><span>${E(opt)}</span></button>`;}).join('');
+  $('#main').innerHTML=`<section class="quiz-container"><div class="quiz-header"><div><div class="eyebrow">${s.mock?'EXAM SIMULATOR':'PRACTICE SESSION'}</div><h2>${E(s.label)}</h2></div><div style="display:flex;gap:10px;align-items:center">${s.mock?`<div id="quiz-time" class="quiz-timer ${s.time<=300?'low':''}">${formatTime(s.time)}</div>`:''}<button type="button" class="btn secondary small" id="exit-quiz">Exit ×</button></div></div><div class="card quiz-card"><div class="quiz-meta"><span>QUESTION ${i+1} OF ${s.indices.length}</span><span>WEEK ${q[0]} · ${E(LESSONS[q[0]-1].title)}</span></div><div class="quiz-bar"><span style="width:${(i+1)/s.indices.length*100}%"></span></div><h3 class="question-prompt">${E(q[1])}</h3><div class="answer-options">${options}</div>${done&&!s.mock?`<div class="feedback"><strong>${answer===q[3]?'Correct answer.':'Not quite — review this.'}</strong>${E(q[4])}</div>`:''}<div class="quiz-footer"><button type="button" class="btn secondary" id="prev-question" ${i===0?'disabled':''}>← Previous</button><button type="button" class="btn ${i===s.indices.length-1?'primary':'secondary'}" id="next-question">${i===s.indices.length-1?'Finish and review →':'Next question →'}</button></div></div><div class="question-dots" aria-label="Question navigation">${s.answers.map((a,j)=>`<button type="button" aria-label="Go to question ${j+1}" class="q-dot ${i===j?'current':''} ${a!==null?'answered':''}" data-question="${j}">${j+1}</button>`).join('')}</div><p style="font-size:12px;color:var(--muted)">${s.mock?'Your choices are hidden until submission. You can revise answers before you submit.':'An explanation appears after each answer. Use the question squares to revisit a question.'}</p></section>`;
+  $$('[data-answer]').forEach(b=>b.addEventListener('click',()=>{if(!s.mock&&s.answers[s.index]!==null)return;s.answers[s.index]=Number(b.dataset.answer);renderQuestion();}));
+  $('#prev-question').addEventListener('click',()=>{s.index--;renderQuestion();});
+  $('#next-question').addEventListener('click',()=>{if(s.index===s.indices.length-1){if(s.mock){const missing=s.answers.filter(x=>x===null).length;if(missing&&!confirm(`You have ${missing} unanswered question${missing>1?'s':''}. Submit anyway?`))return;}finishQuiz(false);}else{s.index++;renderQuestion();}});
+  $$('[data-question]').forEach(b=>b.addEventListener('click',()=>{s.index=Number(b.dataset.question);renderQuestion();}));
+  $('#exit-quiz').addEventListener('click',()=>{if(confirm('Exit this session? Unsubmitted answers will be lost.')){stopTimer();quizSession=null;activeRoute=s.mock?'mocks':'practice';if(s.mock)renderMocks();else renderPracticeSetup();}});
+}
+function finishQuiz(timedOut){
+  const s=quizSession;if(!s||s.finished)return;s.finished=true;stopTimer();
+  const correct=s.indices.reduce((sum,qi,i)=>sum+(s.answers[i]===QUESTIONS[qi][3]?1:0),0);
+  state.history.push({label:s.label,total:s.indices.length,correct,paper:s.paper,date:new Date().toISOString()});
+  if(state.history.length>100)state.history=state.history.slice(-100);save();updateChrome(s.mock?'mocks':'practice');
+  const percent=Math.round(correct/s.indices.length*100);
+  $('#main').innerHTML=`<div class="card result-panel"><div class="eyebrow">SESSION COMPLETE${timedOut?' · TIME EXPIRED':''}</div><h1 style="margin:0 0 8px;letter-spacing:-1px">${percent>=80?'Strong result!':percent>=55?'Good progress. Keep going.':'A useful starting point.'}</h1><div class="score-badge">${percent}% <small>${correct} / ${s.indices.length} correct</small></div><p style="color:var(--muted);font-size:13px;max-width:590px">${E(s.label)}. Review the questions below — every explanation is a chance to improve your next attempt.</p><div class="controls-row" style="margin:23px 0"><button type="button" class="btn primary" id="retry-quiz">Try this ${s.mock?'paper':'quiz'} again ↗</button><a href="${s.mock?'#mocks':'#practice'}" class="btn secondary">Choose another session</a></div><div class="section-head"><h2>Answer review</h2><span class="pill">${s.answers.filter(x=>x!==null).length} answered</span></div>${s.indices.map((qi,i)=>{const q=QUESTIONS[qi],a=s.answers[i],ok=a===q[3];return `<article class="review-item"><h4>${i+1}. ${E(q[1])}</h4><p class="${ok?'good':'bad'}">${ok?'✓ Correct':a===null?'○ Not answered':'✕ Incorrect'}${a!==null?' · Your answer: '+E(q[2][a]):''}</p><p><strong>Correct answer:</strong> ${E(q[2][q[3]])}</p><p>${E(q[4])}</p></article>`;}).join('')}</div>`;
+  $('#retry-quiz').addEventListener('click',()=>beginQuiz(s.indices,s.mock,s.label,s.paper));
+  window.scrollTo({top:0,behavior:'instant'});
+}
+function cardsFor(scope){return FLASHCARDS.filter(c=>scope==='all'||(scope==='midterm'?c[0]<=6:c[0]===Number(scope)));}
+function renderFlashcards(){
+  flashSession={week:'midterm',index:0,flipped:false,cards:cardsFor('midterm')};
+  $('#main').innerHTML=`${pageHeading('ACTIVE RECALL','Flashcards','Recall the answer before flipping the card. Use the arrow buttons — or left and right arrow keys — to navigate.')}
+  <div class="flash-wrap"><div class="controls-row"><label class="form-label" for="flash-scope" style="margin:0">CARD DECK</label><select class="input flash-filter" id="flash-scope"><option value="midterm">Midterm deck · Weeks 1–6</option><option value="all">Entire course</option>${LESSONS.map(l=>`<option value="${l.week}">Week ${l.week}: ${E(l.title)}</option>`).join('')}</select><button class="btn secondary small" id="shuffle-flash">Shuffle deck ↝</button></div><div class="flash-meta" id="flash-count"></div><button type="button" class="flashcard" id="flash-card" aria-label="Flip flashcard" aria-pressed="false"><small id="flash-side">QUESTION</small><span class="face" id="flash-face"></span><span class="tap">Click or tap to reveal the other side ↻</span></button><div class="flash-controls"><button class="btn secondary" id="flash-prev">← Previous</button><span class="pill" id="flash-week"></span><button class="btn secondary" id="flash-next">Next →</button></div><div class="callout"><span class="callout-symbol">◈</span><div><strong>Study method: active recall</strong><p>Say your answer out loud before revealing it. Repeat difficult cards until you can explain them without looking.</p></div></div></div>`;
+  $('#flash-scope').addEventListener('change',e=>{flashSession={week:e.target.value,index:0,flipped:false,cards:cardsFor(e.target.value)};drawFlash();});
+  $('#shuffle-flash').addEventListener('click',()=>{flashSession.cards=shuffle(flashSession.cards);flashSession.index=0;flashSession.flipped=false;drawFlash();toast('Cards shuffled');});
+  $('#flash-card').addEventListener('click',()=>{flashSession.flipped=!flashSession.flipped;drawFlash();});
+  $('#flash-prev').addEventListener('click',()=>nextFlash(-1));$('#flash-next').addEventListener('click',()=>nextFlash(1));drawFlash();
+}
+function drawFlash(){if(activeRoute!=='flashcards'||!$('#flash-card'))return;const s=flashSession,c=s.cards[s.index];if(!c)return;$('#flash-count').textContent=`CARD ${s.index+1} OF ${s.cards.length}`;$('#flash-side').textContent=s.flipped?'ANSWER':'QUESTION';$('#flash-face').textContent=s.flipped?c[2]:c[1];$('#flash-card').setAttribute('aria-pressed',String(s.flipped));$('#flash-week').textContent=`Week ${c[0]}`;}
+function nextFlash(step){if(activeRoute!=='flashcards'||!flashSession.cards.length)return;flashSession.index=(flashSession.index+step+flashSession.cards.length)%flashSession.cards.length;flashSession.flipped=false;drawFlash();}
+function renderReference(){
+  $('#main').innerHTML=`${pageHeading('QUICK REFERENCE','Formula & rules sheet','The key logical laws, inference rules and formulae in one printable study guide.',`<button type="button" class="btn secondary" id="print-sheet">Print / save as PDF ↗</button>`)}<div class="reference-layout">${REFERENCES.map(r=>`<article class="card reference-card"><h3>${E(r.title)}</h3>${r.items.map(x=>`<div class="ref-item"><strong>${E(x[0])}</strong><span>${E(x[1])}</span></div>`).join('')}</article>`).join('')}</div><div class="callout"><span class="callout-symbol">✓</span><div><strong>Exam strategy</strong><p>Memorize rules of inference and equivalences first, then practise translating English to symbols and constructing counterexamples. For proofs, state assumptions and justify every step.</p></div></div>`;
+  $('#print-sheet').addEventListener('click',()=>window.print());
+}
+initNav();
+
+</script>
+</body>
+</html>

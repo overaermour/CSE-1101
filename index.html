@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d2d">
+  <meta name="description" content="Interactive University of Guyana CSE1101 study hub: logic, arguments, sets, proofs, combinatorics, relations and functions.">
+  <title>CSE1101 | Discrete Mathematics Study Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#dashboard" aria-label="CSE1101 home">
+        <span class="brand-mark">∑</span>
+        <span><strong>CSE1101</strong><small>UG STUDY HUB</small></span>
+      </a>
+      <div class="side-kicker">YOUR WORKSPACE</div>
+      <nav class="main-nav" id="main-nav">
+        <a href="#dashboard" data-nav="dashboard"><span class="nav-symbol">▦</span> Dashboard</a>
+        <a href="#lessons" data-nav="lessons"><span class="nav-symbol">≡</span> Study lessons</a>
+        <a href="#practice" data-nav="practice"><span class="nav-symbol">◎</span> Practice questions</a>
+        <a href="#mocks" data-nav="mocks"><span class="nav-symbol">◷</span> Mock midterms</a>
+        <a href="#flashcards" data-nav="flashcards"><span class="nav-symbol">◇</span> Flashcards</a>
+        <a href="#reference" data-nav="reference"><span class="nav-symbol">∴</span> Formula sheet</a>
+      </nav>
+      <div class="side-kicker weeks-kicker">COURSE OUTLINE</div>
+      <nav class="week-nav" id="week-nav" aria-label="Weeks"></nav>
+      <div class="sidebar-bottom"><div class="sidebar-progress-label"><span>Course progress</span><strong id="side-progress-text">0 / 11</strong></div><div class="meter"><span id="side-progress-bar"></span></div><p>Built around your provided UG syllabus. Progress stays on this device.</p><button class="theme-button" id="theme-toggle" type="button">◐ &nbsp; Switch appearance</button></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><div class="mobile-brand"><button class="menu-button" id="menu-button" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button><span><strong>CSE1101</strong> <small>STUDY HUB</small></span></div><div class="crumb" id="breadcrumb">University of Guyana <span>/</span> Discrete Mathematics</div><div class="topbar-right"><span class="top-pill"><span class="online-dot"></span> WORKS OFFLINE</span><button id="top-theme-toggle" type="button" class="icon-button" aria-label="Toggle light and dark mode">◐</button></div></header>
+      <main id="main" tabindex="-1" aria-live="polite"></main>
+      <footer class="footer"><span>CSE1101 • University of Guyana • Independent revision resource</span><span>Based on the 11-week outline you provided · Verify exam coverage with your lecturer</span></footer>
+    </div>
+  </div>
+  <div class="overlay" id="menu-overlay" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
